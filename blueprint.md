@@ -22,6 +22,7 @@ Democratize music distribution by providing a turnkey, DDEX-compliant distributi
 ### Platform Stack
 - **Frontend**: Vue 3 (Composition API) with Vite
 - **Backend**: Firebase (Firestore, Functions, Storage, Auth)
+- **Icons**: FontAwesome Free icons for consistent UI iconography
 - **Delivery**: Node.js workers for file transfer
 - **Validation**: DDEX Workbench API integration
 - **CLI**: Node.js CLI for project scaffolding
@@ -119,8 +120,9 @@ ddex-distro/
 │   │   │   │   ├── StatsOverview.vue
 │   │   │   │   ├── RecentActivity.vue
 │   │   │   │   └── DeliveryMetrics.vue
-│   │   │   └── shared/            # Shared components
+│   │   │   └── NavBar.vue         # Navigation bar component
 │   │   ├── views/                 # Page views
+│   │   │   ├── SplashPage.vue     # Landing/marketing page
 │   │   │   ├── Dashboard.vue      # Main dashboard
 │   │   │   ├── Catalog.vue        # Catalog management
 │   │   │   ├── NewRelease.vue     # Create release wizard
@@ -138,13 +140,14 @@ ddex-distro/
 │   │   │   ├── workbench.js       # Validation API
 │   │   │   └── storage.js         # Asset management
 │   │   ├── router/                # Vue Router
+│   │   │   └── index.js           # Route definitions
 │   │   ├── assets/                # Design system CSS architecture
 │   │   │   ├── main.css           # Entry point importing all stylesheets
 │   │   │   ├── base.css           # CSS reset, normalization, base typography
 │   │   │   ├── themes.css         # CSS custom properties, light/dark themes
 │   │   │   └── components.css     # Reusable component & utility classes
-│   │   ├── App.vue                # Root component
-│   │   └── main.js                # Entry point
+│   │   ├── App.vue                # Root component with theme management
+│   │   └── main.js                # Entry point with FontAwesome setup
 │   ├── functions/                 # Cloud Functions
 │   │   ├── catalog/               # Catalog operations
 │   │   │   ├── releases.js        # Release CRUD

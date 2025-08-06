@@ -28,7 +28,10 @@ import {
   faCheckCircle,
   faChartLine,
   faCopy,
-  faTruck
+  faTruck,
+  faSun,
+  faMoon,
+  faBars
 } from '@fortawesome/free-solid-svg-icons'
 
 // Add icons to the library
@@ -50,7 +53,10 @@ library.add(
   faCheckCircle,
   faChartLine,
   faCopy,
-  faTruck
+  faTruck,
+  faSun,
+  faMoon,
+  faBars
 )
 
 const app = createApp(App)
