@@ -60,10 +60,9 @@ const toggleMobileMenu = () => {
       <div class="navbar-content">
         <!-- Logo -->
         <router-link to="/" class="navbar-brand">
-          <svg class="logo" width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="var(--color-primary)"/>
-            <path d="M8 12h16M8 16h16M8 20h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <div class="logo">
+            <font-awesome-icon icon="truck" />
+          </div>
           <span class="brand-text">DDEX Distro</span>
         </router-link>
 
@@ -187,6 +186,15 @@ const toggleMobileMenu = () => {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 18px;
   flex-shrink: 0;
 }
 

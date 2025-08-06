@@ -6,32 +6,32 @@ const router = useRouter()
 
 const features = [
   {
-    icon: '📦',
+    icon: 'cube',
     title: 'DDEX Native',
     description: 'Built from the ground up for DDEX compliance with automatic ERN generation and validation.'
   },
   {
-    icon: '🚀',
+    icon: 'rocket',
     title: 'Instant Deployment',
     description: 'Deploy your own distribution platform in minutes with our npm package and CLI tools.'
   },
   {
-    icon: '🎯',
+    icon: 'bullseye',
     title: 'Multi-Target Delivery',
     description: 'Deliver to DSPs via FTP, SFTP, S3, or API with automated queue management.'
   },
   {
-    icon: '🎨',
+    icon: 'palette',
     title: 'White-Label Ready',
     description: 'Fully customizable branding, domain support, and multi-tenant architecture.'
   },
   {
-    icon: '✅',
+    icon: 'check-circle',
     title: 'Validation Built-In',
     description: 'Every ERN is automatically validated through DDEX Workbench integration.'
   },
   {
-    icon: '📊',
+    icon: 'chart-line',
     title: 'Real-Time Analytics',
     description: 'Track deliveries, monitor success rates, and analyze catalog performance.'
   }
@@ -42,7 +42,7 @@ npx create-ddex-distro my-label-distro
 cd my-label-distro
 npm run deploy
 
-# Your distribution platform is live! 🚀`)
+# Your distribution platform is live!`)
 
 const handleGetStarted = () => {
   router.push('/signup')
@@ -54,6 +54,11 @@ const handleViewDemo = () => {
 
 const handleViewDocs = () => {
   router.push('/docs')
+}
+
+const copyCode = () => {
+  navigator.clipboard.writeText(codeExample.value)
+  // You could add a toast notification here
 }
 </script>
 
@@ -72,7 +77,7 @@ const handleViewDocs = () => {
           </div>
           
           <h1 class="hero-title">
-            Your Own Music Distribution Platform
+            DDEX Delivery Platform
             <span class="hero-highlight">in Minutes</span>
           </h1>
           
@@ -121,11 +126,8 @@ const handleViewDocs = () => {
           </div>
           <div class="code-block">
             <pre><code>{{ codeExample }}</code></pre>
-            <button class="copy-btn" @click="copyCode">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
-                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/>
-              </svg>
+            <button class="copy-btn" @click="copyCode" title="Copy to clipboard">
+              <font-awesome-icon icon="copy" />
             </button>
           </div>
         </div>
@@ -145,7 +147,9 @@ const handleViewDocs = () => {
         <div class="grid grid-cols-1 grid-cols-md-2 grid-cols-lg-3">
           <div v-for="feature in features" :key="feature.title" class="feature-card card card-hover">
             <div class="card-body">
-              <div class="feature-icon">{{ feature.icon }}</div>
+              <div class="feature-icon">
+                <font-awesome-icon :icon="feature.icon" />
+              </div>
               <h3 class="feature-title">{{ feature.title }}</h3>
               <p class="feature-description">{{ feature.description }}</p>
             </div>
@@ -165,27 +169,19 @@ const handleViewDocs = () => {
             </p>
             <div class="integration-features">
               <div class="integration-item">
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+                <font-awesome-icon icon="check" class="check-icon" />
                 <span>Automatic ERN validation via Workbench API</span>
               </div>
               <div class="integration-item">
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+                <font-awesome-icon icon="check" class="check-icon" />
                 <span>Test deliveries with your own DDEX DSP instance</span>
               </div>
               <div class="integration-item">
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+                <font-awesome-icon icon="check" class="check-icon" />
                 <span>Single sign-on across all DDEX tools</span>
               </div>
               <div class="integration-item">
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+                <font-awesome-icon icon="check" class="check-icon" />
                 <span>Track releases from creation to consumption</span>
               </div>
             </div>
@@ -364,18 +360,24 @@ const handleViewDocs = () => {
   position: absolute;
   top: var(--space-md);
   right: var(--space-md);
-  padding: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
 }
 
 .copy-btn:hover {
   background-color: var(--color-bg);
   color: var(--color-text);
+  transform: scale(1.05);
 }
 
 /* Features */
@@ -385,8 +387,13 @@ const handleViewDocs = () => {
 }
 
 .feature-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: var(--space-md);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 }
 
 .feature-title {
@@ -431,6 +438,7 @@ const handleViewDocs = () => {
 .check-icon {
   color: var(--color-success);
   flex-shrink: 0;
+  font-size: 1.25rem;
 }
 
 .ecosystem-diagram {

@@ -20,7 +20,15 @@ import {
   faCheck,
   faTimes,
   faCog,
-  faChartBar
+  faChartBar,
+  faCube,
+  faRocket,
+  faBullseye,
+  faPalette,
+  faCheckCircle,
+  faChartLine,
+  faCopy,
+  faTruck
 } from '@fortawesome/free-solid-svg-icons'
 
 // Add icons to the library
@@ -34,7 +42,15 @@ library.add(
   faCheck,
   faTimes,
   faCog,
-  faChartBar
+  faChartBar,
+  faCube,
+  faRocket,
+  faBullseye,
+  faPalette,
+  faCheckCircle,
+  faChartLine,
+  faCopy,
+  faTruck
 )
 
 const app = createApp(App)
