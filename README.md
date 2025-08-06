@@ -1,4 +1,4 @@
-# DDEX Distro 🎵
+# DDEX Distro
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-4FC08D.svg)](https://vuejs.org/)
@@ -208,12 +208,3 @@ Built with ❤️ by the DDEX community. Special thanks to:
 - [Firebase](https://firebase.google.com) for the infrastructure
 - [Vue.js](https://vuejs.org) for the framework
 - All our [contributors](https://github.com/ddex/distro/graphs/contributors)
-
----
-
-<p align="center">
-  <b>Democratizing music distribution, one release at a time.</b><br>
-  <a href="https://ddex-distro.com">Website</a> •
-  <a href="https://docs.ddex-distro.com">Documentation</a> •
-  <a href="https://demo.ddex-distro.com">Live Demo</a>
-</p>
