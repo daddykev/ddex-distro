@@ -138,7 +138,11 @@ ddex-distro/
 │   │   │   ├── workbench.js       # Validation API
 │   │   │   └── storage.js         # Asset management
 │   │   ├── router/                # Vue Router
-│   │   ├── assets/                # Shared CSS system
+│   │   ├── assets/                # Design system CSS architecture
+│   │   │   ├── main.css           # Entry point importing all stylesheets
+│   │   │   ├── base.css           # CSS reset, normalization, base typography
+│   │   │   ├── themes.css         # CSS custom properties, light/dark themes
+│   │   │   └── components.css     # Reusable component & utility classes
 │   │   ├── App.vue                # Root component
 │   │   └── main.js                # Entry point
 │   ├── functions/                 # Cloud Functions
