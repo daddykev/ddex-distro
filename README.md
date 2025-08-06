@@ -1,10 +1,10 @@
 # DDEX Distro 🎵
 
-[![npm version](https://img.shields.io/npm/v/@ddex/distro-cli.svg)](https://www.npmjs.com/package/@ddex/distro-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Vue 3](https://img.shields.io/badge/Vue-3.x-4FC08D.svg)](https://vuejs.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-v9-FFA000.svg)](https://firebase.google.com/)
 
-**Open-source, npm-installable music distribution platform for the modern music industry.**
+> Open-source, npm-installable music distribution platform for the modern music industry.
 
 DDEX Distro enables labels, artists, and distributors to deploy a fully functional, DDEX-compliant distribution system in minutes. Part of the [DDEX Workbench](https://github.com/daddykev/ddex-workbench) ecosystem, it seamlessly integrates with industry standards while remaining completely customizable.
 
