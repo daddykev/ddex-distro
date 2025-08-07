@@ -72,7 +72,7 @@ const toggleMobileMenu = () => {
         </router-link>
 
         <!-- Desktop Navigation -->
-        <div class="navbar-nav hidden-sm" v-if="navigationItems.length > 0">
+        <div class="navbar-nav desktop-only" v-if="navigationItems.length > 0">
           <router-link 
             v-for="item in navigationItems" 
             :key="item.path"
@@ -85,7 +85,7 @@ const toggleMobileMenu = () => {
         </div>
 
         <!-- Desktop Actions -->
-        <div class="navbar-actions hidden-sm">
+        <div class="navbar-actions desktop-only">
           <button @click="$emit('toggle-theme')" class="btn-icon" aria-label="Toggle theme">
             <font-awesome-icon :icon="currentTheme === 'light' ? 'moon' : 'sun'" />
           </button>
@@ -108,7 +108,7 @@ const toggleMobileMenu = () => {
         </div>
 
         <!-- Mobile Menu Button -->
-        <button @click="toggleMobileMenu" class="mobile-menu-btn block-sm hidden-md" aria-label="Toggle menu">
+        <button @click="toggleMobileMenu" class="mobile-menu-btn mobile-only" aria-label="Toggle menu">
           <font-awesome-icon :icon="mobileMenuOpen ? 'times' : 'bars'" />
         </button>
       </div>
@@ -116,7 +116,7 @@ const toggleMobileMenu = () => {
 
     <!-- Mobile Menu -->
     <transition name="slide">
-      <div v-if="mobileMenuOpen" class="mobile-menu block-sm hidden-md">
+      <div v-if="mobileMenuOpen" class="mobile-menu mobile-only">
         <div class="container">
           <div class="mobile-nav" v-if="navigationItems.length > 0">
             <router-link 
@@ -155,7 +155,6 @@ const toggleMobileMenu = () => {
 </template>
 
 <style scoped>
-/* Keep all existing styles - they're already perfect */
 .navbar {
   position: fixed;
   top: 0;
@@ -336,6 +335,29 @@ const toggleMobileMenu = () => {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
+}
+
+/* Responsive visibility utilities specific to navbar */
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: flex;
+  }
+  
+  .mobile-menu.mobile-only {
+    display: block;
+  }
 }
 
 /* Transition for mobile menu */
