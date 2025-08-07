@@ -1,8 +1,12 @@
+// main.js
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// Import the main CSS file (which imports all other CSS files)
+// Import Firebase initialization
+import './firebase' // This initializes Firebase when the app starts
+
+// Import the main CSS file
 import './assets/main.css'
 
 // FontAwesome imports
