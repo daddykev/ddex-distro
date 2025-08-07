@@ -8,6 +8,7 @@ import Settings from '../views/Settings.vue'
 import Catalog from '../views/Catalog.vue'
 import NewRelease from '../views/NewRelease.vue'
 import Deliveries from '../views/Deliveries.vue'
+import Analytics from '../views/Analytics.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,12 @@ const router = createRouter({
       path: '/deliveries',
       name: 'deliveries',
       component: Deliveries,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/analytics',
+      name: 'analytics',
+      component: Analytics,
       meta: { requiresAuth: true }
     },
     {
