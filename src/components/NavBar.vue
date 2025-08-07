@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useAuth } from '../composables/useAuth'
 
 const props = defineProps({
   currentTheme: {
@@ -13,13 +14,10 @@ const emit = defineEmits(['toggle-theme'])
 
 const router = useRouter()
 const route = useRoute()
+const { isAuthenticated, userProfile, logout } = useAuth()
 
 // Mobile menu state
 const mobileMenuOpen = ref(false)
-
-// Mock auth state (will be replaced with Firebase Auth)
-const isAuthenticated = ref(false)
-const user = ref(null)
 
 const navigationItems = computed(() => {
   if (!isAuthenticated.value) {
@@ -32,6 +30,12 @@ const navigationItems = computed(() => {
   ]
 })
 
+const userInitials = computed(() => {
+  if (!userProfile.value) return 'U'
+  const name = userProfile.value.displayName || userProfile.value.organizationName || ''
+  return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'U'
+})
+
 const handleLogin = () => {
   router.push('/login')
 }
@@ -40,11 +44,14 @@ const handleSignup = () => {
   router.push('/signup')
 }
 
-const handleLogout = () => {
-  // TODO: Implement Firebase Auth logout
-  isAuthenticated.value = false
-  user.value = null
-  router.push('/')
+const handleLogout = async () => {
+  try {
+    await logout()
+    router.push('/')
+    mobileMenuOpen.value = false
+  } catch (error) {
+    console.error('Logout error:', error)
+  }
 }
 
 const toggleMobileMenu = () => {
@@ -93,8 +100,8 @@ const toggleMobileMenu = () => {
           </template>
           <template v-else>
             <div class="user-menu">
-              <button class="user-avatar" @click="handleLogout">
-                <span>{{ user?.initials || 'U' }}</span>
+              <button class="user-avatar" @click="handleLogout" title="Sign out">
+                <span>{{ userInitials }}</span>
               </button>
             </div>
           </template>
@@ -148,7 +155,7 @@ const toggleMobileMenu = () => {
 </template>
 
 <style scoped>
-/* Keep all existing styles - no changes needed */
+/* Keep all existing styles - they're already perfect */
 .navbar {
   position: fixed;
   top: 0;

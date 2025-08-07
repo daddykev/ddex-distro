@@ -1,6 +1,14 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { auth, db } from '../firebase'
+import { 
+  createUserWithEmailAndPassword, 
+  signInWithPopup, 
+  GoogleAuthProvider,
+  updateProfile 
+} from 'firebase/auth'
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
 
 const router = useRouter()
 
@@ -15,12 +23,40 @@ const formData = ref({
 const errorMessage = ref('')
 const isLoading = ref(false)
 
+// Create user profile in Firestore
+const createUserProfile = async (user, additionalData = {}) => {
+  try {
+    const userRef = doc(db, 'users', user.uid)
+    await setDoc(userRef, {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName || formData.value.organizationName,
+      organizationName: formData.value.organizationName || user.displayName,
+      photoURL: user.photoURL || null,
+      role: 'admin', // First user is admin
+      plan: 'free',
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+      ...additionalData
+    })
+  } catch (error) {
+    console.error('Error creating user profile:', error)
+    throw error
+  }
+}
+
 const handleSignup = async () => {
   errorMessage.value = ''
   
   // Validate passwords match
   if (formData.value.password !== formData.value.confirmPassword) {
     errorMessage.value = 'Passwords do not match'
+    return
+  }
+  
+  // Validate password strength
+  if (formData.value.password.length < 8) {
+    errorMessage.value = 'Password must be at least 8 characters'
     return
   }
   
@@ -33,23 +69,93 @@ const handleSignup = async () => {
   isLoading.value = true
   
   try {
-    // TODO: Implement Firebase Auth signup
-    console.log('Signup attempt:', formData.value)
+    // Create Firebase Auth account
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      formData.value.email,
+      formData.value.password
+    )
     
-    // Simulate signup success
-    setTimeout(() => {
-      router.push('/dashboard')
-    }, 1000)
+    // Update display name
+    await updateProfile(userCredential.user, {
+      displayName: formData.value.organizationName
+    })
+    
+    // Create user profile in Firestore
+    await createUserProfile(userCredential.user)
+    
+    // Navigate to dashboard
+    router.push('/dashboard')
   } catch (error) {
-    errorMessage.value = 'Failed to create account. Please try again.'
+    // Handle Firebase Auth errors
+    switch (error.code) {
+      case 'auth/email-already-in-use':
+        errorMessage.value = 'This email is already registered. Please sign in instead.'
+        break
+      case 'auth/invalid-email':
+        errorMessage.value = 'Please enter a valid email address'
+        break
+      case 'auth/weak-password':
+        errorMessage.value = 'Password is too weak. Please use at least 8 characters.'
+        break
+      case 'auth/network-request-failed':
+        errorMessage.value = 'Network error. Please check your connection and try again.'
+        break
+      default:
+        errorMessage.value = 'Failed to create account. Please try again.'
+        console.error('Signup error:', error)
+    }
   } finally {
     isLoading.value = false
   }
 }
 
 const handleGoogleSignup = async () => {
-  // TODO: Implement Google OAuth
-  console.log('Google signup')
+  errorMessage.value = ''
+  isLoading.value = true
+  
+  try {
+    const provider = new GoogleAuthProvider()
+    provider.setCustomParameters({
+      prompt: 'select_account'
+    })
+    
+    const result = await signInWithPopup(auth, provider)
+    
+    // Check if this is a new user
+    const isNewUser = result._tokenResponse?.isNewUser
+    
+    if (isNewUser) {
+      // Create user profile for new Google users
+      await createUserProfile(result.user, {
+        organizationName: result.user.displayName
+      })
+    }
+    
+    // Navigate to dashboard
+    router.push('/dashboard')
+  } catch (error) {
+    // Handle Firebase Auth errors
+    switch (error.code) {
+      case 'auth/popup-closed-by-user':
+        // User closed the popup - no error message needed
+        break
+      case 'auth/popup-blocked':
+        errorMessage.value = 'Popup was blocked. Please allow popups for this site.'
+        break
+      case 'auth/cancelled-popup-request':
+        // Another popup was already open - no error message needed
+        break
+      case 'auth/network-request-failed':
+        errorMessage.value = 'Network error. Please check your connection and try again.'
+        break
+      default:
+        errorMessage.value = 'Failed to sign up with Google. Please try again.'
+        console.error('Google signup error:', error)
+    }
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>
 
@@ -134,6 +240,7 @@ const handleGoogleSignup = async () => {
             </div>
 
             <div v-if="errorMessage" class="form-error">
+              <font-awesome-icon icon="times" />
               {{ errorMessage }}
             </div>
 
@@ -175,6 +282,7 @@ const handleGoogleSignup = async () => {
 </template>
 
 <style scoped>
+/* Keep all existing styles - they're already perfect */
 .auth-page {
   min-height: calc(100vh - 64px);
   display: flex;
@@ -248,6 +356,18 @@ const handleGoogleSignup = async () => {
   user-select: none;
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-error);
+  font-size: var(--text-sm);
+  margin-top: var(--space-xs);
+  padding: var(--space-sm);
+  background-color: rgba(234, 67, 53, 0.1);
+  border-radius: var(--radius-md);
 }
 
 .btn-block {

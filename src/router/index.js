@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuth } from '../composables/useAuth'
 import SplashPage from '../views/SplashPage.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
@@ -16,12 +17,14 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      meta: { requiresGuest: true }
     },
     {
       path: '/signup',
       name: 'signup',
-      component: Signup
+      component: Signup,
+      meta: { requiresGuest: true }
     },
     {
       path: '/dashboard',
@@ -44,11 +47,31 @@ const router = createRouter({
 })
 
 // Navigation guard for protected routes
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = false // TODO: Check Firebase Auth state
+router.beforeEach(async (to, from, next) => {
+  const { isAuthenticated, isLoading } = useAuth()
   
-  if (to.meta.requiresAuth && !isAuthenticated) {
+  // Wait for auth state to be determined
+  if (isLoading.value) {
+    // Wait for auth state to load
+    await new Promise(resolve => {
+      const unwatch = setInterval(() => {
+        const { isLoading: loading } = useAuth()
+        if (!loading.value) {
+          clearInterval(unwatch)
+          resolve()
+        }
+      }, 50)
+    })
+  }
+  
+  const { isAuthenticated: isAuth } = useAuth()
+  
+  if (to.meta.requiresAuth && !isAuth.value) {
+    // Redirect to login if trying to access protected route
     next('/login')
+  } else if (to.meta.requiresGuest && isAuth.value) {
+    // Redirect to dashboard if trying to access guest-only route (login/signup)
+    next('/dashboard')
   } else {
     next()
   }
