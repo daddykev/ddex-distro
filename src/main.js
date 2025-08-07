@@ -29,12 +29,23 @@ import {
   faChartLine,
   faCopy,
   faTruck,
-  faSun,
   faMoon,
+  faSun,
   faBars
 } from '@fortawesome/free-solid-svg-icons'
 
-// Add icons to the library
+// Import brand icons
+import { 
+  faGoogle,
+  faSpotify,
+  faApple,
+  faGithub,
+  faTwitter,
+  faFacebook,
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons'
+
+// Add solid icons to the library
 library.add(
   faHome,
   faMusic,
@@ -54,9 +65,20 @@ library.add(
   faChartLine,
   faCopy,
   faTruck,
-  faSun,
   faMoon,
+  faSun,
   faBars
+)
+
+// Add brand icons to the library
+library.add(
+  faGoogle,
+  faSpotify,
+  faApple,
+  faGithub,
+  faTwitter,
+  faFacebook,
+  faYoutube
 )
 
 const app = createApp(App)

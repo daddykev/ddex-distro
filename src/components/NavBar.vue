@@ -23,30 +23,28 @@ const user = ref(null)
 
 const navigationItems = computed(() => {
   if (!isAuthenticated.value) {
-    return [
-      { name: 'Features', path: '/features' },
-      { name: 'Pricing', path: '/pricing' },
-      { name: 'Documentation', path: '/docs' },
-      { name: 'API', path: '/api' }
-    ]
+    return []
   }
   
   return [
     { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Catalog', path: '/catalog' },
-    { name: 'New Release', path: '/releases/new' },
-    { name: 'Deliveries', path: '/deliveries' },
     { name: 'Settings', path: '/settings' }
   ]
 })
 
 const handleLogin = () => {
-  // TODO: Implement Firebase Auth login
   router.push('/login')
 }
 
 const handleSignup = () => {
   router.push('/signup')
+}
+
+const handleLogout = () => {
+  // TODO: Implement Firebase Auth logout
+  isAuthenticated.value = false
+  user.value = null
+  router.push('/')
 }
 
 const toggleMobileMenu = () => {
@@ -67,7 +65,7 @@ const toggleMobileMenu = () => {
         </router-link>
 
         <!-- Desktop Navigation -->
-        <div class="navbar-nav hidden-sm">
+        <div class="navbar-nav hidden-sm" v-if="navigationItems.length > 0">
           <router-link 
             v-for="item in navigationItems" 
             :key="item.path"
@@ -95,7 +93,7 @@ const toggleMobileMenu = () => {
           </template>
           <template v-else>
             <div class="user-menu">
-              <button class="user-avatar">
+              <button class="user-avatar" @click="handleLogout">
                 <span>{{ user?.initials || 'U' }}</span>
               </button>
             </div>
@@ -113,7 +111,7 @@ const toggleMobileMenu = () => {
     <transition name="slide">
       <div v-if="mobileMenuOpen" class="mobile-menu block-sm hidden-md">
         <div class="container">
-          <div class="mobile-nav">
+          <div class="mobile-nav" v-if="navigationItems.length > 0">
             <router-link 
               v-for="item in navigationItems" 
               :key="item.path"
@@ -126,7 +124,7 @@ const toggleMobileMenu = () => {
           </div>
           <div class="mobile-actions">
             <button @click="$emit('toggle-theme')" class="btn btn-secondary btn-sm">
-              <font-awesome-icon :icon="currentTheme === 'light' ? 'moon' : 'sun'" class="theme-icon" />
+              <font-awesome-icon :icon="currentTheme === 'light' ? 'moon' : 'sun'" />
               {{ currentTheme === 'light' ? 'Dark Mode' : 'Light Mode' }}
             </button>
             <template v-if="!isAuthenticated">
@@ -137,6 +135,11 @@ const toggleMobileMenu = () => {
                 Get Started
               </button>
             </template>
+            <template v-else>
+              <button @click="handleLogout" class="btn btn-secondary">
+                Sign Out
+              </button>
+            </template>
           </div>
         </div>
       </div>
@@ -145,6 +148,7 @@ const toggleMobileMenu = () => {
 </template>
 
 <style scoped>
+/* Keep all existing styles - no changes needed */
 .navbar {
   position: fixed;
   top: 0;
@@ -325,10 +329,6 @@ const toggleMobileMenu = () => {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-}
-
-.theme-icon {
-  font-size: 1rem;
 }
 
 /* Transition for mobile menu */
