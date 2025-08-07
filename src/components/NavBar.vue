@@ -25,8 +25,11 @@ const navigationItems = computed(() => {
   }
   
   return [
-    { name: 'Dashboard', path: '/dashboard' },
-    { name: 'Settings', path: '/settings' }
+    { name: 'Dashboard', path: '/dashboard', icon: 'chart-bar' },
+    { name: 'Catalog', path: '/catalog', icon: 'music' },
+    { name: 'New Release', path: '/releases/new', icon: 'plus' },
+    { name: 'Deliveries', path: '/deliveries', icon: 'truck' },
+    { name: 'Settings', path: '/settings', icon: 'cog' }
   ]
 })
 
@@ -57,6 +60,13 @@ const handleLogout = async () => {
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
 }
+
+const isActiveRoute = (path) => {
+  if (path === '/catalog' && route.path.startsWith('/catalog')) return true
+  if (path === '/releases/new' && route.path.startsWith('/releases')) return true
+  if (path === '/deliveries' && route.path.startsWith('/deliveries')) return true
+  return route.path === path
+}
 </script>
 
 <template>
@@ -78,8 +88,9 @@ const toggleMobileMenu = () => {
             :key="item.path"
             :to="item.path"
             class="nav-link"
-            :class="{ active: route.path === item.path }"
+            :class="{ active: isActiveRoute(item.path) }"
           >
+            <font-awesome-icon :icon="item.icon" class="nav-icon" />
             {{ item.name }}
           </router-link>
         </div>
@@ -126,6 +137,7 @@ const toggleMobileMenu = () => {
               class="mobile-nav-link"
               @click="mobileMenuOpen = false"
             >
+              <font-awesome-icon :icon="item.icon" class="nav-icon" />
               {{ item.name }}
             </router-link>
           </div>
@@ -212,12 +224,19 @@ const toggleMobileMenu = () => {
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
   padding: var(--space-xs) var(--space-md);
   color: var(--color-text-secondary);
   text-decoration: none;
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
   font-weight: var(--font-medium);
+}
+
+.nav-icon {
+  font-size: 0.875rem;
 }
 
 .nav-link:hover {
@@ -312,6 +331,9 @@ const toggleMobileMenu = () => {
 }
 
 .mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   padding: var(--space-sm) var(--space-md);
   color: var(--color-text);
   text-decoration: none;

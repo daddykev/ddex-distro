@@ -5,6 +5,9 @@ import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Settings from '../views/Settings.vue'
+import Catalog from '../views/Catalog.vue'
+import NewRelease from '../views/NewRelease.vue'
+import Deliveries from '../views/Deliveries.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +33,24 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/catalog',
+      name: 'catalog',
+      component: Catalog,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/releases/new',
+      name: 'new-release',
+      component: NewRelease,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/deliveries',
+      name: 'deliveries',
+      component: Deliveries,
       meta: { requiresAuth: true }
     },
     {
