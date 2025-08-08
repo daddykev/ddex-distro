@@ -7,19 +7,25 @@
 
 > Open-source, npm-installable music distribution platform for the modern music industry.
 
-DDEX Distro enables labels, artists, and distributors to deploy a fully functional, DDEX-compliant distribution system in minutes. Built on an **open-core model** with a fully-functional Community Edition (MIT licensed) and an enhanced Enterprise Edition for professional organizations.
+DDEX Distro enables labels, artists, and distributors to deploy a fully functional, DDEX-compliant distribution system in minutes. **Every feature, every protocol, every line of code is MIT licensed and free forever.**
 
-## 🎯 Our Open-Core Philosophy
+## 🎯 True Open Source Philosophy
 
-**We believe in true open source.** The Community Edition is **complete and production-ready** with no artificial limitations. You get ALL delivery protocols (FTP, SFTP, S3, API, Azure), full ERN generation, and everything needed to run a professional distribution platform. 
+**DDEX Distro is 100% open source.** The entire platform is MIT licensed with no paid tiers, no enterprise edition, and no artificial limitations. You get a complete, production-ready distribution system with ALL delivery protocols (FTP, SFTP, S3, API, Azure), full ERN generation, and everything needed to run a professional distribution platform.
 
-We don't hold back basic features for monetization. The Enterprise Edition adds genuinely advanced capabilities like immersive audio support (Dolby Atmos), complex production credits, and sophisticated delivery orchestration - features that require significant additional development and are typically only needed by larger organizations.
+We believe in building trust through transparency. The core platform is and will always be completely free and fully functional.
+
+### Plugin Marketplace
+For specialized needs, we're developing an **open plugin marketplace** where both our team and **third-party developers** can offer commercial and free plugins. This creates a thriving ecosystem of extensions while keeping the core platform 100% open source. These plugins are entirely optional - the core DDEX Distro platform is complete and production-ready without any plugins.
+
+The marketplace will be **open to all developers**, fostering innovation and allowing the community to build specialized solutions for unique industry needs. Whether you're a developer looking to monetize your expertise or share free tools with the community, the plugin marketplace will provide the infrastructure to distribute your extensions.
 
 ### Why This Matters
-- **No vendor lock-in**: Start free, stay free, or upgrade only when you need advanced features
-- **No artificial limits**: Community Edition has no release caps, no watermarks, no time bombs
-- **All protocols included**: Every delivery method is available in Community Edition
-- **Natural growth path**: Upgrade to Enterprise when complexity demands it, not because of artificial restrictions
+- **No vendor lock-in**: Deploy and use forever without paying a cent
+- **No artificial limits**: No release caps, no watermarks, no time bombs
+- **Complete functionality**: Every feature needed for professional distribution
+- **True community ownership**: Fork it, modify it, deploy it - it's yours
+- **Vibrant ecosystem**: Buy plugins from various developers or build your own
 
 ## 🚧 Current Development Status
 
@@ -47,109 +53,140 @@ Currently building the functional backend for:
 ### 📅 Upcoming Phases
 - **Phase 3: ERN Generation** (Weeks 9-12)
 - **Phase 4: Delivery Engine** (Weeks 13-16)  
-- **Phase 5: Enterprise Features** (Weeks 17-20)
+- **Phase 5: Plugin Marketplace** (Weeks 17-20)
 - **Phase 6: Testing & Launch** (Weeks 21-24)
 
-## ✨ Features
+## ✨ Core Features (100% Free & Open Source)
 
-### 🆓 Community Edition (MIT License)
-**Perfect for**: Independent artists, small labels, learning DDEX
+### Complete Distribution Platform
+✅ **Catalog Management**
+- Unlimited releases and tracks
+- Bulk operations and batch processing
+- Version control and release history
+- Draft and publishing workflow
 
-✅ **Complete Production Features**:
-- Full catalog management with unlimited releases
-- ERN generation (3.8.2, 4.2, 4.3) for standard releases
-- **ALL delivery protocols included**:
-  - ✅ FTP delivery to legacy systems
-  - ✅ SFTP for secure transfers
-  - ✅ S3 for cloud-native platforms
-  - ✅ API for modern integrations
-  - ✅ Azure blob storage support
-- Essential metadata and credits (artist, producer, writer)
-- Stereo audio support (WAV, FLAC, MP3)
-- Territory management (worldwide + regional)
-- Real-time delivery tracking
-- Professional dashboard and analytics
-- White-label capabilities
-- **No limits, no restrictions, no catch**
+✅ **ERN Generation**
+- DDEX ERN 3.8.2, 4.2, and 4.3 support
+- Automatic validation via DDEX Workbench API
+- Profile-specific message generation
+- Real-time preview and editing
 
-### 🚀 Enterprise Edition (Commercial License)
-**Built for**: Major labels, aggregators, complex catalog management
+✅ **All Delivery Protocols**
+- **FTP**: Legacy system support
+- **SFTP**: Secure file transfers
+- **S3**: AWS cloud delivery
+- **API**: Modern REST/GraphQL endpoints
+- **Azure**: Microsoft cloud storage
+- Manual export for custom workflows
 
-Everything in Community, plus genuinely advanced features:
+✅ **Metadata & Credits**
+- Complete production credits (artist, producer, writer, composer)
+- ISRC and barcode management
+- Multi-language support
+- Copyright and rights information
 
-- 🎵 **Immersive Audio Support**
-  - Dolby Atmos processing and delivery
-  - Sony 360 Reality Audio
-  - Binaural and stem management
+✅ **Audio Processing**
+- WAV, FLAC, and MP3 support
+- Automatic format validation
+- Metadata extraction
+- Waveform visualization
 
-- 📝 **Professional Production Credits**
-  - Complete engineering credits (mixing, mastering, recording)
-  - Session musician tracking
-  - Studio and equipment documentation
-  - ISNI/IPI integration
+✅ **Territory Management**
+- Worldwide and regional distribution
+- Territory-specific settings
+- Rights management
+- Release scheduling
 
-- 🔄 **Advanced Delivery Orchestration**
-  - Parallel delivery to multiple DSPs
-  - Conditional delivery chains
-  - Smart routing based on DSP requirements
-  - Advanced retry strategies
-  - Priority queue management
+✅ **Professional Dashboard**
+- Real-time analytics
+- Delivery status tracking
+- Performance metrics
+- Activity logs
 
-- 🌍 **Complex Territory & Rights**
-  - Time-windowed territories
-  - Territory-specific pricing
-  - Complex rights management
-  - Exception handling
+✅ **White-Label Ready**
+- Custom branding
+- Domain mapping
+- Theme customization
+- Multi-tenant support
 
-- 💼 **Enterprise Support**
-  - Priority support with SLA
-  - Custom development
-  - On-premise deployment option
-  - Dedicated account management
+## 🔌 Plugin Marketplace
 
-## 💰 Transparent Pricing
+An **open marketplace** for optional plugins, welcoming contributions from both our core team and **third-party developers**. Create and sell your own plugins or choose from a growing library of extensions.
 
-### Community Edition - **Free Forever**
-- ✅ Full production features
-- ✅ All delivery protocols
-- ✅ Unlimited releases
-- ✅ Community support
-- ✅ MIT License
+### 🚀 For Plugin Developers
+- **Open ecosystem**: Anyone can develop and publish plugins
+- **Flexible monetization**: Offer free, freemium, or paid plugins
+- **Plugin SDK**: Comprehensive development kits and documentation
+- **Community driven**: Build solutions for real industry needs
 
-### Enterprise Edition
-**Pricing announced at v1.0 launch**
-- All Community features
-- Advanced plugin suite
-- Priority support
-- Custom development options
+### 🎵 Audio Processing Plugins
+- **Dolby Atmos Plugin**: Process and deliver immersive audio
+- **Sony 360 Plugin**: Reality Audio support  
+- **Apple Digital Masters Plugin**: Optimized for Apple Music
+- **Stem Management Plugin**: Individual instrument tracks
+- **AI Mastering Plugin**: Automated audio optimization
+
+### 📝 Metadata Enhancement Plugins
+- **Session Credits Plugin**: Detailed musician and engineer credits
+- **Studio Details Plugin**: Recording location and equipment
+- **Advanced Rights Plugin**: Complex publishing and sync rights
+- **Custom Fields Plugin**: Label-specific metadata fields
+- **Multi-Language Plugin**: Advanced localization support
+
+### 🔄 Workflow Automation Plugins
+- **Delivery Orchestrator**: Complex routing and conditional logic
+- **Bulk Processor**: Large catalog operations
+- **Smart Scheduling**: AI-powered delivery timing
+- **Retry Manager**: Advanced failure recovery
+- **Webhook Integration**: Connect to external services
+
+### 📊 Analytics & Reporting Plugins
+- **Analytics Pro**: Advanced metrics and insights
+- **Custom Reports**: Build your own reports
+- **Revenue Tracking**: Sales and streaming data
+- **API Extensions**: Advanced API access
+- **BI Connectors**: Export to Tableau, PowerBI, etc.
+
+### 🌍 Territory & Pricing Plugins
+- **Territory Windowing**: Time-based territory releases
+- **Dynamic Pricing**: Market-specific pricing rules
+- **Rights Calculator**: Complex rights management
+- **Geo-Restrictions**: Advanced territorial controls
+- **Currency Converter**: Multi-currency support
+
+*The marketplace will launch with initial plugins from our team, but we encourage developers to start planning their extensions. Plugin development documentation and SDK will be available in Phase 5.*
 
 ## 🚀 Quick Start
 
-### Try the Live Demo
+### Install and Deploy (Completely Free)
 ```bash
-# Clone and run locally
-git clone https://github.com/ddex/distro.git
-cd distro/template
-npm install
+# Create your distribution platform
+npx create-ddex-distro my-label
+
+# Navigate to project
+cd my-label
+
+# Initialize Firebase (free tier available)
+ddex-distro init
+
+# Start development server
 npm run dev
 # Visit http://localhost:5173
 
-# Or use the CLI tool (available now!)
-cd ../cli
-npm link
-ddex-distro create my-label
-cd my-label
+# Deploy to production
 npm run deploy
+# Your platform is live! 🚀
 ```
 
 ### Using the CLI Tool
 ```bash
-# The CLI is fully functional with these commands:
+# Available commands
 ddex-distro create <name>    # Create new DDEX Distro project
 ddex-distro init             # Initialize Firebase configuration
 ddex-distro deploy           # Deploy to Firebase
 ddex-distro configure        # Configure platform settings
 ddex-distro target add       # Add delivery targets
+ddex-distro target test      # Test delivery connections
 ddex-distro dev              # Start development server
 ```
 
@@ -162,8 +199,8 @@ ddex-distro dev              # Start development server
 - **CLI**: Node.js with Commander.js
 - **Monorepo**: Lerna for package management
 - **Types**: TypeScript for shared packages
-- **Delivery**: Node.js workers (in development)
-- **Validation**: DDEX Workbench API (planned)
+- **Delivery**: Node.js workers for file transfer
+- **Validation**: DDEX Workbench API integration
 
 ## 📊 Development Roadmap
 
@@ -203,12 +240,19 @@ ddex-distro dev              # Start development server
 - [ ] Retry logic and error handling
 - [ ] Delivery receipts and tracking
 
-### Phase 5: Enterprise Features 📅 (Weeks 17-20)
-- [ ] Plugin architecture
-- [ ] Immersive audio plugin
-- [ ] Advanced metadata plugin
-- [ ] Delivery orchestration
-- [ ] Territory management plugin
+### Phase 5: Plugin Marketplace 📅 (Weeks 17-20)
+- [ ] Plugin architecture design
+- [ ] Marketplace infrastructure
+- [ ] Plugin SDK and documentation
+- [ ] Developer portal and documentation
+- [ ] Plugin submission and review process
+- [ ] Initial plugins from core team:
+  - [ ] Dolby Atmos
+  - [ ] Enhanced Metadata
+  - [ ] Bulk Processor
+- [ ] Third-party developer onboarding
+- [ ] Plugin registry and discovery
+- [ ] Licensing and payment system
 
 ### Phase 6: Testing & Launch 📅 (Weeks 21-24)
 - [ ] Comprehensive test suite
@@ -217,6 +261,7 @@ ddex-distro dev              # Start development server
 - [ ] Documentation completion
 - [ ] npm package publication
 - [ ] Public beta launch
+- [ ] Developer community launch
 
 ## 💻 Development
 
@@ -280,60 +325,80 @@ We welcome contributions! With Phase 1 complete, we especially need help with:
 - 🧪 Testing
 - 🎨 Additional UI components
 - 🌍 Internationalization
+- 🔌 **Plugin development** (start planning your plugins!)
+
+### For Plugin Developers
+Start thinking about plugins you'd like to build! The Plugin SDK and marketplace infrastructure will be available in Phase 5, but you can:
+- Join our Discord (coming soon) to discuss plugin ideas
+- Review the core architecture to plan integrations
+- Suggest plugin APIs and hook points
+- Contribute to the plugin SDK design
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 🔗 DDEX Ecosystem
 
-DDEX Distro is part of the larger DDEX Workbench open-source ecosystem:
+DDEX Distro is part of the larger DDEX open-source ecosystem:
 
 - [DDEX Workbench](https://github.com/ddex/workbench) - Validation and testing tools
 - [DDEX DSP](https://github.com/ddex/dsp) - Reference streaming platform
 
 All tools share unified authentication for seamless workflow integration.
 
-## 📈 Success Metrics (Target)
+## 📈 Performance Targets
 
-### Performance Targets
-- ERN generation: <5 seconds
-- Asset processing: <30 seconds/track
-- Delivery time: <2 minutes average
+- **ERN Generation**: <5 seconds for standard album
+- **Asset Processing**: <30 seconds per track
+- **Delivery Queue**: <2 minute average delivery time
+- **UI Response**: <200ms for all operations
+- **API Response**: <500ms p95
 
 ## 🔐 Security
 
 - ✅ Firebase Auth with SSO support
 - ✅ Encrypted credential storage
-- ✅ Secure file handling
-- ✅ Role-based access control
-- 📅 SOC 2 compliance (planned for Enterprise)
+- ✅ Secure file handling with signed URLs
+- ✅ Role-based access control (RBAC)
+- ✅ Audit logging for all operations
+- 📅 Regular security audits
 
 ## 📄 License
 
-### Community Edition
-MIT License - use freely for any purpose. See [LICENSE](LICENSE) for details.
+### Core Platform
+**MIT License** - Use freely for any purpose, forever. See [LICENSE](LICENSE) for details.
 
-### Enterprise Edition
-Commercial license required. Details coming at v1.0 launch.
+This means you can:
+- ✅ Use commercially without payment
+- ✅ Modify and customize freely
+- ✅ Distribute and sell your modifications
+- ✅ Use privately without restrictions
+- ✅ Fork and create your own platform
+
+### Plugins
+Individual licenses determined by plugin developers. The marketplace will support various licensing models including MIT, GPL, commercial, and freemium.
 
 ## 💬 Support
 
-### Community
-- **GitHub Issues**: [Bug reports and features](https://github.com/ddex/distro/issues)
-- **Discussions**: [Community forum](https://github.com/ddex/distro/discussions)
+### Community Support (Free)
+- **GitHub Issues**: [Bug reports and features](https://github.com/daddykev/ddex-distro/issues)
+- **Discussions**: [Community forum](https://github.com/daddykev/ddex-distro/discussions)
 - **Discord**: Coming soon
+- **Documentation**: Comprehensive guides and API docs
 
-### Enterprise
-- Priority support details coming at launch
+### Plugin Support
+Support terms vary by plugin developer. Each plugin in the marketplace will clearly indicate support options.
 
 ## 🙏 Acknowledgments
 
-Built by the DDEX community for the music industry. Special thanks to:
-- [DDEX](https://ddex.net) for the standards
+Built by the music industry, for the music industry. Special thanks to:
+- [DDEX](https://ddex.net) for the standards and ongoing support
 - Early contributors and testers
 - The Vue.js and Firebase teams
+- The open-source community
+- Future plugin developers who will extend the platform
 
 ---
 
 **Join us in democratizing music distribution. True open source, no compromises.**
 
-*Star ⭐ the repo to follow our progress!*
+*Star ⭐ the repo to follow our progress! Interested in developing plugins? Watch this space for the Plugin SDK announcement.*
