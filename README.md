@@ -15,10 +15,10 @@ DDEX Distro enables labels, artists, and distributors to deploy a fully function
 
 We believe in building trust through transparency. The core platform is and will always be completely free and fully functional.
 
-### Plugin Marketplace
-For specialized needs, we're developing an **open plugin marketplace** where both our team and **third-party developers** can offer commercial and free plugins. This creates a thriving ecosystem of extensions while keeping the core platform 100% open source. These plugins are entirely optional - the core DDEX Distro platform is complete and production-ready without any plugins.
+### Plug-in Marketplace
+For specialized needs, we're developing an **open plug-in marketplace** where both our team and **third-party developers** can offer commercial and free plug-ins. This creates a thriving ecosystem of extensions while keeping the core platform 100% open source. These plug-ins are entirely optional - the core DDEX Distro platform is complete and production-ready without any plug-ins.
 
-The marketplace will be **open to all developers**, fostering innovation and allowing the community to build specialized solutions for unique industry needs. Whether you're a developer looking to monetize your expertise or share free tools with the community, the plugin marketplace will provide the infrastructure to distribute your extensions.
+The marketplace will be **open to all developers**, fostering innovation and allowing the community to build specialized solutions for unique industry needs. Whether you're a developer looking to monetize your expertise or share free tools with the community, the plug-in marketplace will provide the infrastructure to distribute your extensions.
 
 ### Why This Matters
 - **No vendor lock-in**: Deploy and use forever without paying a cent
@@ -53,7 +53,7 @@ Currently building the functional backend for:
 ### 📅 Upcoming Phases
 - **Phase 3: ERN Generation** (Weeks 9-12)
 - **Phase 4: Delivery Engine** (Weeks 13-16)  
-- **Phase 5: Plugin Marketplace** (Weeks 17-20)
+- **Phase 5: Plug-in Marketplace** (Weeks 17-20)
 - **Phase 6: Testing & Launch** (Weeks 21-24)
 
 ## ✨ Core Features (100% Free & Open Source)
@@ -113,41 +113,41 @@ Currently building the functional backend for:
 
 An **open marketplace** for optional plugins, welcoming contributions from both our core team and **third-party developers**. Create and sell your own plugins or choose from a growing library of extensions.
 
-### 🚀 For Plugin Developers
+### 🚀 For Developers
 - **Open ecosystem**: Anyone can develop and publish plugins
 - **Flexible monetization**: Offer free, freemium, or paid plugins
 - **Plugin SDK**: Comprehensive development kits and documentation
 - **Community driven**: Build solutions for real industry needs
 
-### 🎵 Audio Processing Plugins
+### 🎵 Audio Processing Plug-ins
 - **Dolby Atmos Plugin**: Process and deliver immersive audio
 - **Sony 360 Plugin**: Reality Audio support  
 - **Apple Digital Masters Plugin**: Optimized for Apple Music
 - **Stem Management Plugin**: Individual instrument tracks
 - **AI Mastering Plugin**: Automated audio optimization
 
-### 📝 Metadata Enhancement Plugins
+### 📝 Metadata Enhancement Plug-ins
 - **Session Credits Plugin**: Detailed musician and engineer credits
 - **Studio Details Plugin**: Recording location and equipment
 - **Advanced Rights Plugin**: Complex publishing and sync rights
 - **Custom Fields Plugin**: Label-specific metadata fields
 - **Multi-Language Plugin**: Advanced localization support
 
-### 🔄 Workflow Automation Plugins
+### 🔄 Workflow Automation Plug-ins
 - **Delivery Orchestrator**: Complex routing and conditional logic
 - **Bulk Processor**: Large catalog operations
 - **Smart Scheduling**: AI-powered delivery timing
 - **Retry Manager**: Advanced failure recovery
 - **Webhook Integration**: Connect to external services
 
-### 📊 Analytics & Reporting Plugins
+### 📊 Analytics & Reporting Plug-ins
 - **Analytics Pro**: Advanced metrics and insights
 - **Custom Reports**: Build your own reports
 - **Revenue Tracking**: Sales and streaming data
 - **API Extensions**: Advanced API access
 - **BI Connectors**: Export to Tableau, PowerBI, etc.
 
-### 🌍 Territory & Pricing Plugins
+### 🌍 Territory & Pricing Plug-ins
 - **Territory Windowing**: Time-based territory releases
 - **Dynamic Pricing**: Market-specific pricing rules
 - **Rights Calculator**: Complex rights management
@@ -240,18 +240,18 @@ ddex-distro dev              # Start development server
 - [ ] Retry logic and error handling
 - [ ] Delivery receipts and tracking
 
-### Phase 5: Plugin Marketplace 📅 (Weeks 17-20)
-- [ ] Plugin architecture design
+### Phase 5: Plug-in Marketplace 📅 (Weeks 17-20)
+- [ ] Plug-in architecture design
 - [ ] Marketplace infrastructure
-- [ ] Plugin SDK and documentation
+- [ ] Plug-in SDK and documentation
 - [ ] Developer portal and documentation
-- [ ] Plugin submission and review process
+- [ ] Plug-in submission and review process
 - [ ] Initial plugins from core team:
   - [ ] Dolby Atmos
   - [ ] Enhanced Metadata
   - [ ] Bulk Processor
 - [ ] Third-party developer onboarding
-- [ ] Plugin registry and discovery
+- [ ] Plug-in registry and discovery
 - [ ] Licensing and payment system
 
 ### Phase 6: Testing & Launch 📅 (Weeks 21-24)
@@ -395,7 +395,7 @@ Built by the music industry, for the music industry. Special thanks to:
 - Early contributors and testers
 - The Vue.js and Firebase teams
 - The open-source community
-- Future plugin developers who will extend the platform
+- Future plug-in developers who will extend the platform
 
 ---
 
