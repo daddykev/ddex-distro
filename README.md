@@ -23,31 +23,32 @@ We don't hold back basic features for monetization. The Enterprise Edition adds 
 
 ## 🚧 Current Development Status
 
-**Alpha Release - v0.3.0** (August 2025)
+**Alpha Release - v0.4.0** (August 2025)
 
-The project is actively under development. Core infrastructure is complete and deployed, with the CMS functionality being built now.
+The project has completed Phase 1 (Foundation) and is now actively developing Phase 2 (Core CMS functionality).
 
-### ✅ What's Working Now
-- **Authentication System**: Complete Firebase Auth integration (email/password + Google SSO)
-- **Dashboard**: Real-time stats, activity feed, quick actions
-- **UI/UX Framework**: Professional design system with light/dark themes
-- **Routing**: All application routes configured and functional
-- **Deployment**: Successfully deployed to Firebase Hosting
-- **CSS Architecture**: Modular design system with components and utilities
+### ✅ Phase 1: Foundation - COMPLETE
+- **Full Vue 3 Application**: All views, routing, and navigation implemented
+- **Firebase Integration**: Complete Auth, Firestore, and Storage setup
+- **Professional UI/UX**: Custom CSS architecture with light/dark themes
+- **CLI Tool**: Fully functional with all commands (create, init, deploy, configure, target, dev)
+- **Monorepo Structure**: Lerna configuration with workspace support
+- **Shared Packages**: @ddex/common package with TypeScript types, constants, utils, and schemas
+- **Template System**: Complete project template for instant deployment
+- **Live Deployment**: Successfully deployed to Firebase Hosting
 
-### 🚀 In Development (Current Sprint)
-- **Release Creation Wizard**: Multi-step release creation flow
-- **Asset Management**: Audio and artwork upload system
-- **Catalog Management**: Browse, search, and manage releases
-- **ERN Generation**: DDEX-compliant message generation
-- **Delivery Engine**: FTP/SFTP/S3/API protocol implementation
+### 🚀 Phase 2: Core CMS - IN PROGRESS
+Currently building the functional backend for:
+- **Release Creation Wizard**: UI complete, implementing data persistence
+- **Asset Management**: Building upload and processing system
+- **Catalog Operations**: Connecting UI to Firestore
+- **Metadata Management**: Form validation and storage
 
-### 📅 Coming Soon
-- **DDEX Workbench Integration**: Automatic ERN validation
-- **Delivery Queue System**: Reliable background delivery processing
-- **Multi-tenant Support**: Serve multiple labels from one installation
-- **Plugin Architecture**: Extensibility for Enterprise features
-- **CLI Tool**: npm-installable project scaffolding
+### 📅 Upcoming Phases
+- **Phase 3: ERN Generation** (Weeks 9-12)
+- **Phase 4: Delivery Engine** (Weeks 13-16)  
+- **Phase 5: Enterprise Features** (Weeks 17-20)
+- **Phase 6: Testing & Launch** (Weeks 21-24)
 
 ## ✨ Features
 
@@ -124,25 +125,32 @@ Everything in Community, plus genuinely advanced features:
 
 ## 🚀 Quick Start
 
-### Try the Live Demo (Current Alpha)
+### Try the Live Demo
 ```bash
 # Clone and run locally
 git clone https://github.com/ddex/distro.git
-cd distro
+cd distro/template
 npm install
 npm run dev
+# Visit http://localhost:5173
 
-# Or deploy to your own Firebase project
-npm run deploy
-```
-
-### Future Installation (v1.0)
-```bash
-# Coming soon: One-command deployment
-npm install -g @ddex/distro-cli
+# Or use the CLI tool (available now!)
+cd ../cli
+npm link
 ddex-distro create my-label
 cd my-label
 npm run deploy
+```
+
+### Using the CLI Tool
+```bash
+# The CLI is fully functional with these commands:
+ddex-distro create <name>    # Create new DDEX Distro project
+ddex-distro init             # Initialize Firebase configuration
+ddex-distro deploy           # Deploy to Firebase
+ddex-distro configure        # Configure platform settings
+ddex-distro target add       # Add delivery targets
+ddex-distro dev              # Start development server
 ```
 
 ## 🛠️ Technology Stack
@@ -151,54 +159,64 @@ npm run deploy
 - **Backend**: Firebase (Firestore, Functions, Storage, Auth)
 - **Styling**: Custom CSS architecture with theme system
 - **Icons**: FontAwesome free icons
+- **CLI**: Node.js with Commander.js
+- **Monorepo**: Lerna for package management
+- **Types**: TypeScript for shared packages
 - **Delivery**: Node.js workers (in development)
 - **Validation**: DDEX Workbench API (planned)
 
 ## 📊 Development Roadmap
 
-### Phase 1: Foundation ✅ (90% Complete)
-- [x] Project architecture and planning
-- [x] Vue 3 application scaffolding
-- [x] Firebase integration
-- [x] Authentication system
-- [x] Navigation and routing
-- [x] Dashboard and settings views
-- [x] CSS design system
+### Phase 1: Foundation ✅ COMPLETE
+- [x] Project architecture and blueprint
+- [x] Vue 3 application with all views
+- [x] Firebase integration (Auth, Firestore, Storage)
+- [x] Complete authentication system
+- [x] Navigation and routing structure
+- [x] Professional CSS architecture
 - [x] Theme support (light/dark)
-- [ ] CLI tool (in progress)
+- [x] CLI tool with all commands
+- [x] Monorepo setup with Lerna
+- [x] TypeScript types and schemas
+- [x] Template system for project generation
 
-### Phase 2: Core CMS 🚧 (Current - 20% Complete)
-- [x] UI components created
-- [ ] Release creation wizard functionality
-- [ ] Asset upload system
-- [ ] Metadata management
-- [ ] Track management
-- [ ] Catalog operations
-- [ ] Firestore integration
+### Phase 2: Core CMS 🚧 (Current - 30% Complete)
+- [x] UI components and views created
+- [ ] Release creation wizard backend
+- [ ] Asset upload and processing
+- [ ] Metadata persistence
+- [ ] Track management functionality
+- [ ] Catalog CRUD operations
+- [ ] Firestore data layer
 
-### Phase 3: ERN Generation 📅 (Q3 2025)
+### Phase 3: ERN Generation 📅 (Weeks 9-12)
 - [ ] ERN generator engine
-- [ ] DDEX Workbench integration
-- [ ] Validation system
-- [ ] Multi-version support
+- [ ] DDEX Workbench API integration
+- [ ] Multi-version support (3.8.2, 4.2, 4.3)
+- [ ] Validation and error handling
+- [ ] ERN preview UI
 
-### Phase 4: Delivery Engine 📅 (Q3 2025)
-- [ ] Protocol implementations
-- [ ] Queue system
-- [ ] Retry logic
-- [ ] Delivery receipts
+### Phase 4: Delivery Engine 📅 (Weeks 13-16)
+- [ ] FTP/SFTP protocol implementation
+- [ ] S3/Azure/API delivery
+- [ ] Queue management system
+- [ ] Retry logic and error handling
+- [ ] Delivery receipts and tracking
 
-### Phase 5: Enterprise Features 📅 (Q4 2025)
+### Phase 5: Enterprise Features 📅 (Weeks 17-20)
 - [ ] Plugin architecture
 - [ ] Immersive audio plugin
 - [ ] Advanced metadata plugin
-- [ ] Orchestration plugin
+- [ ] Delivery orchestration
+- [ ] Territory management plugin
 
-### Phase 6: Beta Launch 📅 (Q1 2026)
-- [ ] Testing suite
-- [ ] Documentation
-- [ ] npm package
-- [ ] Public beta
+### Phase 6: Testing & Launch 📅 (Weeks 21-24)
+- [ ] Comprehensive test suite
+- [ ] Performance optimization
+- [ ] Security audit
+- [ ] Documentation completion
+- [ ] npm package publication
+- [ ] Public beta launch
 
 ## 💻 Development
 
@@ -207,50 +225,60 @@ npm run deploy
 git clone https://github.com/ddex/distro.git
 cd distro
 
-# Install dependencies
-npm install
+# Install all dependencies (root, template, cli, packages)
+npm run install:all
 
 # Start development server
+cd template
 npm run dev
 # Visit http://localhost:5173
-
-# Run with Firebase emulators
-npm run emulators
 
 # Build for production
 npm run build
 
 # Deploy to Firebase
 npm run deploy
+
+# Work with the CLI
+cd ../cli
+npm link
+ddex-distro --help
 ```
 
 ## 🏗️ Project Structure
 
 ```
 ddex-distro/
-├── src/
-│   ├── views/           # Page components (✅ Complete)
-│   ├── components/      # UI components (✅ Complete)
-│   ├── composables/     # Vue composables (✅ Auth done)
-│   ├── router/          # Routing config (✅ Complete)
-│   ├── assets/          # CSS architecture (✅ Complete)
-│   └── firebase.js      # Firebase config (✅ Complete)
-├── functions/           # Cloud Functions (📅 Planned)
-├── cli/                 # CLI tool (🚧 In Progress)
-├── packages/            # Core packages (🚧 In Progress)
-└── docs/                # Documentation (📅 Planned)
+├── template/            # Default Vue app template
+│   ├── src/
+│   │   ├── views/       # Page components (✅ Complete)
+│   │   ├── components/  # UI components (✅ NavBar complete)
+│   │   ├── composables/ # Vue composables (✅ useAuth complete)
+│   │   ├── router/      # Routing config (✅ Complete)
+│   │   ├── assets/      # CSS architecture (✅ Complete)
+│   │   └── firebase.js  # Firebase config (✅ Complete)
+│   └── functions/       # Cloud Functions (📅 Planned)
+├── cli/                 # CLI tool (✅ Complete)
+│   ├── bin/            # Executable scripts
+│   └── commands/       # All CLI commands
+├── packages/           # Shared packages
+│   └── @ddex/
+│       └── common/     # Types & utils (✅ Complete)
+├── firebase.json       # Firebase configuration (✅)
+├── lerna.json         # Monorepo config (✅)
+└── docs/              # Documentation (📅 Planned)
 ```
 
 ## 🤝 Contributing
 
-We welcome contributions! The project is in active development and we need help with:
+We welcome contributions! With Phase 1 complete, we especially need help with:
 
-- 🔧 Core CMS implementation
+- 🔧 Phase 2: Core CMS implementation (current focus)
 - 📝 ERN generation logic
 - 🚚 Delivery protocol implementations
 - 📖 Documentation
 - 🧪 Testing
-- 🎨 UI/UX improvements
+- 🎨 Additional UI components
 - 🌍 Internationalization
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
@@ -265,11 +293,6 @@ DDEX Distro is part of the larger DDEX Workbench open-source ecosystem:
 All tools share unified authentication for seamless workflow integration.
 
 ## 📈 Success Metrics (Target)
-
-### Community Edition (Year 1)
-- 1,000+ active installations
-- 50,000+ releases processed
-- 5,000+ community members
 
 ### Performance Targets
 - ERN generation: <5 seconds

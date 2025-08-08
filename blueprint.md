@@ -18,7 +18,7 @@ Democratize music distribution by providing a turnkey, DDEX-compliant distributi
 ### Editions
 
 #### Community Edition (Open Source - MIT License)
-**Perfect for**: Independent artists, small labels, testing, learning DDEX
+**Perfect for**: Independent labels, small distributors, testing, learning DDEX
 - Full ERN generation for standard releases
 - FTP/SFTP/API/S3 delivery to DSPs
 - Essential metadata and credits (producer, writer)
@@ -27,7 +27,7 @@ Democratize music distribution by providing a turnkey, DDEX-compliant distributi
 - Complete production-ready system
 
 #### Enterprise Edition (Commercial License)
-**Built for**: Professional labels, distributors, complex releases
+**Built for**: Major labels, large distributors, complex releases
 - Everything in Community, plus:
 - Complete production credits (engineers, session musicians)
 - Immersive audio (Dolby Atmos, Spatial Audio)
