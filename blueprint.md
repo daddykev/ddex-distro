@@ -36,11 +36,7 @@ Democratize music distribution by providing a turnkey, DDEX-compliant distributi
 - Advanced metadata and rights management
 - Priority support and SLA
 
-### Official Apps
-- **Community**: [https://ddex-distro.org](https://ddex-distro.org)
-- **Enterprise**: [https://enterprise.ddex-distro.org](https://enterprise.ddex-distro.org)
-
-## Development Status (as of current date)
+## Development Status (August 2025)
 
 ### ✅ Phase 1: Foundation - COMPLETE
 - Full Vue 3 application with routing and views
@@ -155,11 +151,11 @@ ddex-distro/
 │   │   │   ├── catalog/           # Catalog management
 │   │   │   ├── delivery/          # Delivery engine
 │   │   │   │   ├── providers/    # Delivery providers
-│   │   │   │   │   ├── ftp.js    # FTP provider (Community)
-│   │   │   │   │   ├── sftp.js   # SFTP provider (Community)
-│   │   │   │   │   ├── s3.js     # S3 provider (Community)
-│   │   │   │   │   ├── api.js    # API provider (Community)
-│   │   │   │   │   └── azure.js  # Azure provider (Community)
+│   │   │   │   │   ├── ftp.js    # FTP provider
+│   │   │   │   │   ├── sftp.js   # SFTP provider
+│   │   │   │   │   ├── s3.js     # S3 provider
+│   │   │   │   │   ├── api.js    # API provider
+│   │   │   │   │   └── azure.js  # Azure provider
 │   │   │   │   └── engine.js     # Delivery orchestration
 │   │   │   ├── ern/               # ERN generation
 │   │   │   ├── validation/        # Workbench integration
@@ -1532,9 +1528,8 @@ const results = await delivery.deliverParallel(ddexRelease);
 ### Ecosystem Expansion
 1. **DDEX Publisher**: Publishing and composition management
 2. **DDEX Analytics**: Unified analytics across distribution and consumption
-3. **DDEX Connect**: Social features for industry networking
-4. **DDEX Studio**: Audio mastering and preparation tools
-5. **DDEX Marketplace**: Plugin and template marketplace
+3. **DDEX Studio**: Audio mastering and preparation tools
+4. **DDEX Marketplace**: Plugin and template marketplace
 
 ## Technical Considerations
 
