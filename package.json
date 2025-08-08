@@ -1,0 +1,14 @@
+{
+  "name": "ddex-distro",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd template && npm run dev",
+    "build": "cd template && npm run build",
+    "install:all": "npm install && cd template && npm install && cd ../cli && npm install && cd ..",
+    "deploy": "cd template && npm run build && firebase deploy"
+  },
+  "devDependencies": {
+    "lerna": "^7.0.0"
+  }
+}

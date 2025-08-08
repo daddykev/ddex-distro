@@ -1,0 +1,21 @@
+// lerna.json
+{
+  "version": "1.0.0",
+  "npmClient": "npm",
+  "packages": [
+    "packages/*",
+    "cli",
+    "template"
+  ],
+  "command": {
+    "publish": {
+      "ignoreChanges": ["*.md", "**/__tests__/**"],
+      "message": "chore(release): publish %v",
+      "registry": "https://registry.npmjs.org"
+    },
+    "bootstrap": {
+      "ignore": "packages-enterprise/*",
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  }
+}
