@@ -23,7 +23,7 @@ We don't hold back basic features for monetization. The Enterprise Edition adds 
 
 ## 🚧 Current Development Status
 
-**Alpha Release - v0.3.0** (January 2025)
+**Alpha Release - v0.3.0** (August 2025)
 
 The project is actively under development. Core infrastructure is complete and deployed, with the CMS functionality being built now.
 
@@ -58,7 +58,7 @@ The project is actively under development. Core infrastructure is complete and d
 - Full catalog management with unlimited releases
 - ERN generation (3.8.2, 4.2, 4.3) for standard releases
 - **ALL delivery protocols included**:
-  - ✅ FTP delivery to legacy DSPs
+  - ✅ FTP delivery to legacy systems
   - ✅ SFTP for secure transfers
   - ✅ S3 for cloud-native platforms
   - ✅ API for modern integrations
@@ -79,7 +79,6 @@ Everything in Community, plus genuinely advanced features:
 - 🎵 **Immersive Audio Support**
   - Dolby Atmos processing and delivery
   - Sony 360 Reality Audio
-  - Apple Spatial Audio
   - Binaural and stem management
 
 - 📝 **Professional Production Credits**
@@ -177,25 +176,25 @@ npm run deploy
 - [ ] Catalog operations
 - [ ] Firestore integration
 
-### Phase 3: ERN Generation 📅 (Q1 2025)
+### Phase 3: ERN Generation 📅 (Q3 2025)
 - [ ] ERN generator engine
 - [ ] DDEX Workbench integration
 - [ ] Validation system
 - [ ] Multi-version support
 
-### Phase 4: Delivery Engine 📅 (Q2 2025)
+### Phase 4: Delivery Engine 📅 (Q3 2025)
 - [ ] Protocol implementations
 - [ ] Queue system
 - [ ] Retry logic
 - [ ] Delivery receipts
 
-### Phase 5: Enterprise Features 📅 (Q2 2025)
+### Phase 5: Enterprise Features 📅 (Q4 2025)
 - [ ] Plugin architecture
 - [ ] Immersive audio plugin
 - [ ] Advanced metadata plugin
 - [ ] Orchestration plugin
 
-### Phase 6: Beta Launch 📅 (Q3 2025)
+### Phase 6: Beta Launch 📅 (Q1 2026)
 - [ ] Testing suite
 - [ ] Documentation
 - [ ] npm package
