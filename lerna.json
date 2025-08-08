@@ -1,4 +1,3 @@
-// lerna.json
 {
   "version": "1.0.0",
   "npmClient": "npm",

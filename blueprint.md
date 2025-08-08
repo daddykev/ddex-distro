@@ -302,15 +302,13 @@ ddex-distro/
 | Writer credit | ✓ | ✓ | Core |
 | Engineering credits | - | ✓ | Plugin |
 | Session musicians | - | ✓ | Plugin |
-| Equipment details | - | ✓ | Plugin |
-| Recording locations | - | ✓ | Plugin |
-| Complex rights | - | ✓ | Plugin |
+| Studio details | - | ✓ | Plugin |
+| Language localization | - | ✓ | Plugin |
 | **Audio Processing** |
 | Stereo audio | ✓ | ✓ | Core |
-| WAV/FLAC/MP3 | ✓ | ✓ | Core |
+| WAV/FLAC | ✓ | ✓ | Core |
 | Dolby Atmos | - | ✓ | Plugin |
-| Spatial Audio | - | ✓ | Plugin |
-| Immersive formats | - | ✓ | Plugin |
+| Apple Digital Masters | - | ✓ | Plugin |
 | Stem management | - | ✓ | Plugin |
 | **Delivery** |
 | FTP delivery | ✓ | ✓ | Core |
@@ -326,8 +324,9 @@ ddex-distro/
 | Retry strategies | Basic | Advanced | Core + Plugin |
 | **Territory Management** |
 | Worldwide | ✓ | ✓ | Core |
-| Basic regions | ✓ | ✓ | Core |
-| Complex rules | - | ✓ | Plugin |
+| By Continent | ✓ | ✓ | Core |
+| By Territory | ✓ | ✓ | Core |
+| Windowing | - | ✓ | Plugin |
 | Time-based territories | - | ✓ | Plugin |
 | Territory pricing | - | ✓ | Plugin |
 | Exception handling | - | ✓ | Plugin |
