@@ -1,4 +1,3 @@
-// cli/bin/ddex-distro.js
 #!/usr/bin/env node
 
 import { program } from 'commander';
