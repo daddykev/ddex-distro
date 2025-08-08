@@ -1586,7 +1586,7 @@ timer.end({ releaseId, trackCount: release.tracks.length });
 
 ### Support Model
 - **Community**: GitHub Discussions, Discord
-- **Pro**: Priority email support (24hr SLA)
+- **Pro**: Traditional email support (24hr SLA)
 - **Enterprise**: Phone support, dedicated account manager
 
 ## Business Model
@@ -1598,21 +1598,18 @@ timer.end({ releaseId, trackCount: release.tracks.length });
 - **Limitations**: None within scope
 
 ### Enterprise Edition Pricing
-#### Starter Plan - $299/month
-- Up to 100 releases/month
+#### Starter Plan - $TBD/month
 - All Enterprise plugins
 - Email support (24hr response)
 - 99.5% uptime SLA
 
-#### Professional Plan - $999/month
-- Up to 1,000 releases/month
+#### Professional Plan - $TBD/month
 - All Enterprise plugins
 - Priority support (4hr response)
 - 99.9% uptime SLA
 - Custom branding
 
 #### Enterprise Plan - Custom
-- Unlimited releases
 - All Enterprise plugins
 - Dedicated support team
 - 99.99% uptime SLA
