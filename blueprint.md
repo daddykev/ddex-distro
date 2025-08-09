@@ -1,4 +1,4 @@
-# DDEX Distro - Blueprint (100% Open Source)
+# DDEX Distro - Blueprint
 
 ## Project Overview
 
