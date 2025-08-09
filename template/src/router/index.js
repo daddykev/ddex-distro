@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuth } from '../composables/useAuth'
+import { watch } from 'vue'
 import SplashPage from '../views/SplashPage.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
@@ -43,8 +44,20 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/catalog/:id',
+      name: 'release-detail',
+      component: () => import('../views/ReleaseDetail.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/releases/new',
       name: 'new-release',
+      component: NewRelease,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/releases/edit/:id',
+      name: 'edit-release',
       component: NewRelease,
       meta: { requiresAuth: true }
     },
@@ -52,6 +65,12 @@ const router = createRouter({
       path: '/deliveries',
       name: 'deliveries',
       component: Deliveries,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/deliveries/new',
+      name: 'new-delivery',
+      component: () => import('../views/NewDelivery.vue'),
       meta: { requiresAuth: true }
     },
     {
@@ -66,10 +85,16 @@ const router = createRouter({
       component: Settings,
       meta: { requiresAuth: true }
     },
-    // Catch-all route - redirect to home
+    // 404 Not Found page
+    {
+      path: '/404',
+      name: 'not-found',
+      component: () => import('../views/NotFound.vue')
+    },
+    // Catch-all route - redirect to 404
     {
       path: '/:pathMatch(.*)*',
-      redirect: '/'
+      redirect: '/404'
     }
   ]
 })
@@ -80,18 +105,18 @@ router.beforeEach(async (to, from, next) => {
   
   // Wait for auth state to be determined
   if (isLoading.value) {
-    // Wait for auth state to load
+    // Wait for auth state to load using watch
     await new Promise(resolve => {
-      const unwatch = setInterval(() => {
-        const { isLoading: loading } = useAuth()
-        if (!loading.value) {
-          clearInterval(unwatch)
-          resolve()
+      const unwatch = watch(isLoading, (newVal) => {
+        if (!newVal) {
+          unwatch()
+          resolve(true)
         }
-      }, 50)
+      }, { immediate: true })
     })
   }
   
+  // Get fresh auth state after loading
   const { isAuthenticated: isAuth } = useAuth()
   
   if (to.meta.requiresAuth && !isAuth.value) {

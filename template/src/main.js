@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './router'
 
 // Import Firebase initialization
-import './firebase' // This initializes Firebase when the app starts
+import './firebase'
 
 // Import the main CSS file
 import './assets/main.css'
@@ -35,7 +35,17 @@ import {
   faTruck,
   faMoon,
   faSun,
-  faBars
+  faBars,
+  faChevronLeft,
+  faChevronRight,
+  faSave,
+  faCircle,
+  faExclamationTriangle,
+  faInfoCircle,
+  faEye,
+  faSearch,
+  faSync,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons'
 
 // Import brand icons
@@ -71,7 +81,17 @@ library.add(
   faTruck,
   faMoon,
   faSun,
-  faBars
+  faBars,
+  faChevronLeft,
+  faChevronRight,
+  faSave,
+  faCircle,
+  faExclamationTriangle,
+  faInfoCircle,
+  faEye,
+  faSearch,
+  faSync,
+  faSpinner
 )
 
 // Add brand icons to the library
