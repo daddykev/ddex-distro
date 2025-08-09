@@ -1,40 +1,49 @@
-# DDEX Distro - Blueprint (Open-Core Edition)
+# DDEX Distro - Blueprint (100% Open Source)
 
 ## Project Overview
 
-DDEX Distro is an open-source, npm-installable music distribution platform that enables labels and artists to manage their catalog, generate DDEX-compliant ERN messages, and deliver releases to Digital Service Providers (DSPs). Built on an open-core model with a fully-functional Community Edition and an enhanced Enterprise Edition with advanced features.
+DDEX Distro is a 100% open-source, npm-installable music distribution platform that enables labels and artists to manage their catalog, generate DDEX-compliant ERN messages, and deliver releases to Digital Service Providers (DSPs). Built with a **completely open-source core** and an **optional plugin marketplace** for specialized features.
 
 ### Vision
-Democratize music distribution by providing a turnkey, DDEX-compliant distribution platform that serves everyone from independent artists to major labels, with a clear upgrade path as needs grow.
+Democratize music distribution by providing a complete, DDEX-compliant distribution platform that's truly free and open, with an optional marketplace for specialized plugins from both our team and third-party developers.
 
 ### Core Value Propositions
-- **Instant Distribution Platform**: Deploy a fully functional distribution system with one command
-- **DDEX Native**: Built from the ground up for DDEX compliance
-- **Open-Core Model**: Free Community Edition with paid Enterprise enhancements
-- **Plugin Architecture**: Extensible system for advanced features
-- **No Artificial Limits**: Community Edition is complete and production-ready
-- **Natural Growth Path**: Upgrade to Enterprise as complexity increases
+- **100% Open Source**: Every line of core code is MIT licensed
+- **Complete Platform**: Full production-ready system, no limitations
+- **Open Plugin Marketplace**: Optional add-ons from any developer
+- **No Vendor Lock-in**: Core platform is complete without plugins
+- **Community Driven**: Open development, transparent roadmap
+- **Developer Ecosystem**: Anyone can build and sell plugins
 
-### Editions
+### Platform Architecture
 
-#### Community Edition (Open Source - MIT License)
-**Perfect for**: Independent labels, small distributors, testing, learning DDEX
-- Full ERN generation for standard releases
-- FTP/SFTP/API/S3 delivery to DSPs
-- Essential metadata and credits (producer, writer)
-- Stereo audio support
-- Basic territory management (worldwide/regional)
-- Complete production-ready system
+#### DDEX Distro Core (100% Open Source - MIT License)
+**Complete distribution platform for everyone**
+- Full ERN generation (3.8.2, 4.2, 4.3)
+- All delivery protocols (FTP/SFTP/API/S3/Azure)
+- Complete metadata and production credits
+- Audio processing (WAV/FLAC/MP3)
+- Territory management
+- Professional dashboard
+- White-label capabilities
+- Multi-tenant support
+- **No limitations, no restrictions, complete functionality**
 
-#### Enterprise Edition (Commercial License)
-**Built for**: Major labels, large distributors, complex releases
-- Everything in Community, plus:
-- Complete production credits (engineers, session musicians)
-- Immersive audio (Dolby Atmos, Spatial Audio)
-- Advanced delivery orchestration (parallel, conditional, smart routing)
-- Complex territory and pricing rules
-- Advanced metadata and rights management
-- Priority support and SLA
+#### Plugin Marketplace (Optional - Separate Repositories)
+**Open marketplace for specialized features**
+
+The marketplace welcomes plugins from:
+- **Core Team Plugins**: Professional extensions developed by the DDEX Distro team
+- **Third-Party Developers**: Community and commercial plugins from independent developers
+- **Label/DSP Integrations**: Custom integrations from industry partners
+- **Open Source Plugins**: Free community contributions
+
+Example plugin categories:
+- **Audio Processing**: Dolby Atmos, Sony 360, Apple Digital Masters, Stem Management
+- **Advanced Metadata**: Session musicians, engineering credits, studio details
+- **Workflow Automation**: Delivery orchestration, bulk operations, smart scheduling
+- **Analytics & Reporting**: Advanced metrics, custom reports, BI integrations
+- **Territory Management**: Windowing, dynamic pricing, complex rights
 
 ## Development Status (August 2025)
 
@@ -55,7 +64,7 @@ Democratize music distribution by providing a turnkey, DDEX-compliant distributi
 ### 📅 Upcoming Phases
 - Phase 3: ERN Generation (Weeks 9-12)
 - Phase 4: Delivery Engine (Weeks 13-16)
-- Phase 5: Enterprise Features (Weeks 17-20)
+- Phase 5: Plugin Marketplace (Weeks 17-20)
 - Phase 6: Testing & Launch (Weeks 21-24)
 
 ## Technical Architecture
@@ -68,7 +77,7 @@ Democratize music distribution by providing a turnkey, DDEX-compliant distributi
 - **Validation**: DDEX Workbench API integration
 - **CLI**: Node.js CLI for project scaffolding
 - **Package Manager**: npm/yarn for distribution
-- **Plugin System**: Dynamic plugin loading for Enterprise features
+- **Plugin System**: Dynamic plugin loading architecture
 
 ### Deployment Model
 ```bash
@@ -127,7 +136,7 @@ ddex-distro/
 │   │   ├── default/               # Default template ✅
 │   │   │   └── (full Vue app)     # Complete template structure ✅
 │   │   ├── minimal/               # Minimal setup ❌
-│   │   └── enterprise/            # Enterprise features ❌
+│   │   └── custom/                # Custom configurations ❌
 │   └── package.json               # CLI dependencies ✅
 ├── packages/                      # Core packages
 │   ├── @ddex/common/              # Common types and utilities ✅
@@ -173,11 +182,15 @@ ddex-distro/
 │       │   ├── queue/             # Job queue management
 │       │   └── workers/           # Background workers
 │       └── package.json
-├── packages-enterprise/           # Enterprise packages (private repo)
-│   ├── @ddex-enterprise/advanced-metadata/
-│   ├── @ddex-enterprise/immersive-audio/
-│   ├── @ddex-enterprise/delivery-orchestration/
-│   └── @ddex-enterprise/territory-advanced/
+├── plugins/                       # Example plugin development (separate repos in production)
+│   ├── example-plugin/            # Example plugin structure
+│   │   ├── src/
+│   │   ├── package.json
+│   │   └── README.md
+│   └── plugin-sdk/                # Plugin development kit
+│       ├── docs/                  # Plugin documentation
+│       ├── templates/             # Plugin templates
+│       └── tools/                 # Development tools
 ├── template/                      # Default project template
 │   ├── src/                       # Vue application
 │   │   ├── components/            # UI components
@@ -271,12 +284,12 @@ ddex-distro/
 │   ├── delivery-setup.md          # Delivery target setup
 │   ├── api-reference.md           # API documentation
 │   ├── customization.md           # Customization guide
-│   ├── upgrade-guide.md           # Community to Enterprise
+│   ├── plugin-development.md      # Plugin developer guide
 │   └── troubleshooting.md         # Common issues
 ├── examples/                      # Example configurations
 │   ├── indie-label/               # Indie label setup
 │   ├── aggregator/                # Aggregator setup
-│   └── enterprise/                # Enterprise setup
+│   └── multi-tenant/              # Multi-tenant setup
 ├── tests/                         # Test suites
 ├── .github/                       # GitHub actions
 ├── .DS_Store                      # Mac system file (git-ignored) ✅
@@ -308,64 +321,7 @@ ddex-distro/
 - **Documentation**: 10% complete - blueprint exists
 - **Testing**: 0% complete - no tests written yet
 
-## Feature Differentiation Matrix
-
-| Feature Category | Community Edition | Enterprise Edition | Implementation |
-|-----------------|-------------------|-------------------|----------------|
-| **Release Management** |
-| Basic releases (Album/Single) | ✓ | ✓ | Core |
-| Track management | ✓ | ✓ | Core |
-| Asset upload | ✓ | ✓ | Core |
-| Bulk operations | Limited (10) | Unlimited | Core + Plugin |
-| **Metadata** |
-| Essential fields | ✓ | ✓ | Core |
-| Artist/Title/Album | ✓ | ✓ | Core |
-| Producer credit | ✓ | ✓ | Core |
-| Writer credit | ✓ | ✓ | Core |
-| Engineering credits | - | ✓ | Plugin |
-| Session musicians | - | ✓ | Plugin |
-| Studio details | - | ✓ | Plugin |
-| Language localization | - | ✓ | Plugin |
-| **Audio Processing** |
-| Stereo audio | ✓ | ✓ | Core |
-| WAV/FLAC | ✓ | ✓ | Core |
-| Dolby Atmos | - | ✓ | Plugin |
-| Apple Digital Masters | - | ✓ | Plugin |
-| Stem management | - | ✓ | Plugin |
-| **Delivery** |
-| FTP delivery | ✓ | ✓ | Core |
-| SFTP delivery | ✓ | ✓ | Core |
-| API delivery | ✓ | ✓ | Core |
-| S3/Cloud delivery | ✓ | ✓ | Core |
-| Manual export | ✓ | ✓ | Core |
-| Sequential delivery | ✓ | ✓ | Core |
-| Parallel delivery | - | ✓ | Plugin |
-| Delivery chains | - | ✓ | Plugin |
-| Smart routing | - | ✓ | Plugin |
-| Conditional logic | - | ✓ | Plugin |
-| Retry strategies | Basic | Advanced | Core + Plugin |
-| **Territory Management** |
-| Worldwide | ✓ | ✓ | Core |
-| By Continent | ✓ | ✓ | Core |
-| By Territory | ✓ | ✓ | Core |
-| Windowing | - | ✓ | Plugin |
-| Time-based territories | - | ✓ | Plugin |
-| Territory pricing | - | ✓ | Plugin |
-| Exception handling | - | ✓ | Plugin |
-| **Analytics** |
-| Basic metrics | ✓ | ✓ | Core |
-| Delivery history | ✓ | ✓ | Core |
-| Advanced analytics | - | ✓ | Plugin |
-| Custom reports | - | ✓ | Plugin |
-| API access | - | ✓ | Plugin |
-| **Support** |
-| Community forum | ✓ | ✓ | - |
-| Documentation | ✓ | ✓ | - |
-| Email support | - | ✓ | - |
-| Priority support | - | ✓ | - |
-| SLA | - | ✓ | - |
-
-## Core Features
+## Core Features (All Included in Open Source)
 
 ### 1. Product Catalog Management
 
@@ -439,7 +395,7 @@ async function generateAndValidate(release) {
 
 ### 3. Delivery Management
 
-#### Multi-Protocol Support (Community Edition)
+#### Multi-Protocol Support (All Included in Core)
 ```typescript
 interface DeliveryProtocols {
   FTP: {
@@ -713,11 +669,9 @@ interface Tenant {
     autoDeliver: boolean;
   };
   
-  subscription: {
-    plan: 'free' | 'pro' | 'enterprise';
-    releaseLimit?: number;
-    deliveryLimit?: number;
-    expires?: Date;
+  plugins: {
+    installed: string[]; // Plugin IDs
+    licenses: Map<string, PluginLicense>;
   };
   
   users: string[]; // User IDs with access
@@ -803,76 +757,6 @@ interface ValidationError {
 }
 ```
 
-### Enterprise Extended Models
-
-```typescript
-// Extended models for Enterprise Edition
-interface EnterpriseTrack extends Track {
-  // Advanced credits (Enterprise only)
-  metadata: {
-    ...Track['metadata'];
-    mixingEngineer?: string;
-    masteringEngineer?: string;
-    recordingEngineer?: string;
-    orchestrator?: string;
-    arranger?: string;
-    sessionMusicians?: SessionMusician[];
-    recordingLocation?: string;
-    recordingDate?: Date;
-    equipment?: RecordingEquipment;
-  };
-  
-  // Immersive audio (Enterprise only)
-  immersiveAudio?: {
-    format: 'DolbyAtmos' | 'Sony360' | 'MPEG-H';
-    channelConfiguration: string;
-    objectCount?: number;
-    bedChannels?: number;
-    files: {
-      master: string;
-      binaural?: string;
-      stereoDownmix?: string;
-    };
-  };
-  
-  // Stems (Enterprise only)
-  stems?: {
-    id: string;
-    type: 'Vocals' | 'Drums' | 'Bass' | 'Guitar' | 'Keys' | 'Other';
-    fileName: string;
-    storageUrl: string;
-  }[];
-}
-
-interface SessionMusician {
-  name: string;
-  instrument: string;
-  role?: string;
-  isni?: string;
-}
-
-interface RecordingEquipment {
-  console?: string;
-  microphones?: string[];
-  preamps?: string[];
-  daw?: string;
-  plugins?: string[];
-}
-
-interface ComplexTerritory {
-  code: string;
-  included: boolean;
-  startDate?: Date;
-  endDate?: Date;
-  pricing?: {
-    wholesale: number;
-    currency: string;
-    tier?: string;
-  };
-  restrictions?: string[];
-}
-```
-
 ## API Architecture
 
 ### Internal APIs (Cloud Functions)
@@ -915,6 +799,13 @@ POST   /api/tenant/invite            // Invite user to tenant
 GET    /api/users/me                 // Get current user
 PUT    /api/users/me                 // Update user profile
 GET    /api/users                    // List tenant users (admin only)
+
+// Plugin Management
+GET    /api/plugins                  // List available plugins
+POST   /api/plugins/install          // Install plugin
+DELETE /api/plugins/:id              // Uninstall plugin
+GET    /api/plugins/:id/config       // Get plugin configuration
+PUT    /api/plugins/:id/config       // Update plugin configuration
 ```
 
 ### External Integration APIs
@@ -954,6 +845,179 @@ class DSPTestClient {
 }
 ```
 
+## Plugin Architecture
+
+### Plugin System Design
+
+```javascript
+// Base plugin interface
+class DDEXPlugin {
+  static metadata = {
+    name: 'plugin-name',
+    version: '1.0.0',
+    author: 'Developer Name',
+    requires: ['@ddex/core@^2.0.0'],
+    hooks: ['beforeRelease', 'afterRelease', 'beforeDelivery']
+  };
+  
+  install(app) {
+    // Plugin installation logic
+    this.registerHooks(app);
+    this.extendModels(app);
+    this.addUIComponents(app);
+  }
+  
+  uninstall(app) {
+    // Cleanup logic
+    this.removeHooks(app);
+    this.cleanupData(app);
+  }
+}
+
+// Plugin loader
+class PluginLoader {
+  constructor() {
+    this.plugins = new Map();
+    this.hooks = new Map();
+  }
+  
+  async loadPlugin(name) {
+    const plugin = await import(`@ddex-plugins/${name}`);
+    
+    // Validate plugin compatibility
+    if (!this.validateRequirements(plugin.metadata.requires)) {
+      throw new Error(`Plugin ${name} requirements not met`);
+    }
+    
+    // Install plugin
+    plugin.install(this.app);
+    this.plugins.set(name, plugin);
+    
+    return plugin;
+  }
+  
+  async executeHook(hookName, data) {
+    const hooks = this.hooks.get(hookName) || [];
+    
+    for (const hook of hooks) {
+      data = await hook(data);
+    }
+    
+    return data;
+  }
+}
+```
+
+### Example Plugin Development
+
+```javascript
+// Example: Dolby Atmos Plugin (third-party or core team)
+export class DolbyAtmosPlugin extends DDEXPlugin {
+  static metadata = {
+    name: 'dolby-atmos',
+    version: '1.0.0',
+    author: 'Audio Processing Inc.',
+    requires: ['@ddex/core@^2.0.0'],
+    hooks: ['beforeAssetProcess', 'afterAssetProcess', 'beforeDelivery']
+  };
+  
+  install(app) {
+    // Extend audio processor
+    app.audioProcessor.addFormat('DolbyAtmos', this.processDolbyAtmos);
+    app.audioProcessor.addFormat('BinauraL', this.processBinaural);
+    
+    // Add UI components
+    app.ui.register('track-editor', AtmosAudioPanel);
+    
+    // Register hooks
+    app.hooks.register('beforeAssetProcess', this.validateAtmosFile);
+    app.hooks.register('beforeDelivery', this.prepareAtmosDelivery);
+  }
+  
+  async processDolbyAtmos(file) {
+    // Validate Atmos file
+    const validation = await this.validateAtmosFile(file);
+    
+    if (!validation.valid) {
+      throw new Error(`Invalid Atmos file: ${validation.errors.join(', ')}`);
+    }
+    
+    // Extract metadata
+    const metadata = await this.extractAtmosMetadata(file);
+    
+    // Generate deliverables
+    const deliverables = await this.generateAtmosDeliverables(file, metadata);
+    
+    return {
+      format: 'DolbyAtmos',
+      metadata,
+      deliverables
+    };
+  }
+  
+  async generateAtmosDeliverables(source, metadata) {
+    return {
+      master: source,
+      binaural: await this.generateBinauralMix(source),
+      stereoDownmix: await this.generateStereoDownmix(source),
+      mp4: await this.generateAtmosMP4(source),
+      metadata: await this.generateAtmosXML(metadata)
+    };
+  }
+}
+```
+
+### Plugin Marketplace Infrastructure
+
+```javascript
+// Plugin marketplace API
+class PluginMarketplace {
+  constructor() {
+    this.registry = new PluginRegistry();
+    this.licensing = new LicensingService();
+  }
+  
+  async searchPlugins(query) {
+    return this.registry.search({
+      query,
+      filters: {
+        category: query.category,
+        author: query.author,
+        license: query.license // 'free', 'paid', 'freemium'
+      }
+    });
+  }
+  
+  async installPlugin(pluginId, tenantId) {
+    const plugin = await this.registry.get(pluginId);
+    
+    // Check licensing
+    if (plugin.license !== 'free') {
+      const hasLicense = await this.licensing.verify(pluginId, tenantId);
+      if (!hasLicense) {
+        throw new Error('Valid license required');
+      }
+    }
+    
+    // Download and install
+    const package = await this.downloadPlugin(plugin);
+    return this.loader.install(package);
+  }
+  
+  async publishPlugin(plugin, developer) {
+    // Validate plugin
+    await this.validatePlugin(plugin);
+    
+    // Register in marketplace
+    return this.registry.publish({
+      ...plugin,
+      author: developer,
+      publishedAt: new Date()
+    });
+  }
+}
+```
+
 ## CLI Tool Architecture
 
 ### Installation & Setup
@@ -964,7 +1028,6 @@ npm install -g @ddex/distro-cli
 # Create new project
 ddex-distro create my-label \
   --template=default \
-  --edition=community \
   --region=us-central1
 
 # Interactive setup
@@ -984,7 +1047,6 @@ ddex-distro create <name>    # Create new project
 ddex-distro init             # Initialize Firebase
 ddex-distro deploy           # Deploy to Firebase
 ddex-distro update           # Update to latest version
-ddex-distro upgrade          # Upgrade to Enterprise edition
 
 # Configuration
 ddex-distro config set <key> <value>
@@ -999,17 +1061,18 @@ ddex-distro build            # Build for production
 ddex-distro emulators        # Start Firebase emulators
 ddex-distro test             # Run test suite
 
+# Plugin Management
+ddex-distro plugin search    # Search marketplace
+ddex-distro plugin install   # Install plugin
+ddex-distro plugin remove    # Remove plugin
+ddex-distro plugin list      # List installed plugins
+ddex-distro plugin develop   # Create new plugin
+
 # Migration & Backup
 ddex-distro import           # Import existing catalog
 ddex-distro export           # Export catalog data
 ddex-distro backup           # Backup to cloud storage
 ddex-distro restore          # Restore from backup
-
-# Plugin Management (Enterprise)
-ddex-distro plugin list      # List available plugins
-ddex-distro plugin install   # Install enterprise plugin
-ddex-distro plugin remove    # Remove plugin
-ddex-distro plugin update    # Update plugins
 ```
 
 ## Security Architecture
@@ -1054,129 +1117,6 @@ async function storeDeliveryCredentials(targetId, credentials) {
 async function getDeliveryCredentials(targetId) {
   const doc = await firestore.collection('deliveryTargets').doc(targetId).get();
   return decryptWithKMS(doc.data().config.credentials);
-}
-```
-
-## Plugin Architecture
-
-### Plugin System Design
-
-```javascript
-// Base plugin interface
-class DDEXPlugin {
-  static metadata = {
-    name: 'plugin-name',
-    version: '1.0.0',
-    edition: 'enterprise', // or 'community' for free plugins
-    requires: ['@ddex/core@^2.0.0'],
-    hooks: ['beforeRelease', 'afterRelease', 'beforeDelivery']
-  };
-  
-  install(app) {
-    // Plugin installation logic
-    this.registerHooks(app);
-    this.extendModels(app);
-    this.addUIComponents(app);
-  }
-  
-  uninstall(app) {
-    // Cleanup logic
-    this.removeHooks(app);
-    this.cleanupData(app);
-  }
-}
-
-// Plugin loader
-class PluginLoader {
-  constructor(edition) {
-    this.edition = edition;
-    this.plugins = new Map();
-    this.hooks = new Map();
-  }
-  
-  async loadPlugin(name) {
-    const plugin = await import(`@ddex-enterprise/${name}`);
-    
-    // Validate edition compatibility
-    if (plugin.metadata.edition === 'enterprise' && this.edition !== 'enterprise') {
-      throw new Error(`Plugin ${name} requires Enterprise Edition`);
-    }
-    
-    // Install plugin
-    plugin.install(this.app);
-    this.plugins.set(name, plugin);
-    
-    return plugin;
-  }
-  
-  async executeHook(hookName, data) {
-    const hooks = this.hooks.get(hookName) || [];
-    
-    for (const hook of hooks) {
-      data = await hook(data);
-    }
-    
-    return data;
-  }
-}
-```
-
-### Example Enterprise Plugin
-
-```javascript
-// @ddex-enterprise/immersive-audio/index.js
-export class ImmersiveAudioPlugin extends DDEXPlugin {
-  static metadata = {
-    name: 'immersive-audio',
-    version: '1.0.0',
-    edition: 'enterprise',
-    requires: ['@ddex/core@^2.0.0'],
-    hooks: ['beforeAssetProcess', 'afterAssetProcess', 'beforeDelivery']
-  };
-  
-  install(app) {
-    // Extend audio processor
-    app.audioProcessor.addFormat('DolbyAtmos', this.processDolbyAtmos);
-    app.audioProcessor.addFormat('Sony360', this.processSony360);
-    
-    // Add UI components
-    app.ui.register('track-editor', ImmersiveAudioPanel);
-    
-    // Register hooks
-    app.hooks.register('beforeAssetProcess', this.validateImmersiveAudio);
-    app.hooks.register('beforeDelivery', this.prepareImmersiveDelivery);
-  }
-  
-  async processDolbyAtmos(file) {
-    // Validate Atmos file
-    const validation = await this.validateAtmosFile(file);
-    
-    if (!validation.valid) {
-      throw new Error(`Invalid Atmos file: ${validation.errors.join(', ')}`);
-    }
-    
-    // Extract metadata
-    const metadata = await this.extractAtmosMetadata(file);
-    
-    // Generate deliverables
-    const deliverables = await this.generateAtmosDeliverables(file, metadata);
-    
-    return {
-      format: 'DolbyAtmos',
-      metadata,
-      deliverables
-    };
-  }
-  
-  async generateAtmosDeliverables(source, metadata) {
-    return {
-      master: source,
-      binaural: await this.generateBinauralMix(source),
-      stereoDownmix: await this.generateStereoDownmix(source),
-      mp4: await this.generateAtmosMP4(source),
-      metadata: await this.generateAtmosXML(metadata)
-    };
-  }
 }
 ```
 
@@ -1230,19 +1170,19 @@ export class CustomDeliveryProtocol {
   }
 }
 
-// Register in Community Edition
+// Register custom protocol
 distro.registerProtocol('custom', CustomDeliveryProtocol);
 ```
 
 ## Implementation Examples
 
-### Community Edition - Complete Release Flow
+### Complete Release Flow
 
 ```javascript
-// Community Edition - Full functionality with all delivery options
+// Complete release creation and delivery
 import { ReleaseCreator, DeliveryManager } from '@ddex/distro-core';
 
-// Create release with essential metadata
+// Create release with full metadata
 const release = {
   title: "Summer Vibes EP",
   artist: "Beach Band",
@@ -1255,11 +1195,11 @@ const release = {
     {
       title: "Sunset Dreams",
       artist: "Beach Band",
-      producer: "John Smith",          // ✓ Supported
-      writer: ["Jane Doe", "John Smith"], // ✓ Supported
+      producer: "John Smith",
+      writer: ["Jane Doe", "John Smith"],
       duration: 215,
       isrc: "USRC12400001",
-      audioFile: "sunset-dreams.wav"    // Stereo WAV
+      audioFile: "sunset-dreams.wav"
     },
     {
       title: "Ocean Waves",
@@ -1283,19 +1223,19 @@ const release = {
     targets: [
       {
         name: "Spotify",
-        protocol: "API",              // ✓ API supported in Community
+        protocol: "API",              // ✓ API supported
         endpoint: "https://api.spotify.com/v1/releases",
         credentials: { /* encrypted */ }
       },
       {
         name: "Apple Music",
-        protocol: "S3",                // ✓ S3 supported in Community
+        protocol: "S3",                // ✓ S3 supported
         bucket: "apple-music-uploads",
         region: "us-west-2"
       },
       {
         name: "Bandcamp",
-        protocol: "FTP",               // ✓ FTP supported in Community
+        protocol: "FTP",               // ✓ FTP supported
         host: "ftp.bandcamp.com"
       }
     ]
@@ -1303,7 +1243,7 @@ const release = {
 };
 
 // Create and validate release
-const creator = new ReleaseCreator({ edition: 'community' });
+const creator = new ReleaseCreator();
 const ddexRelease = await creator.createRelease(release);
 
 // Generate ERN
@@ -1322,22 +1262,19 @@ if (validation.valid) {
 }
 ```
 
-### Enterprise Edition - Advanced Features
+### Plugin-Enhanced Workflow
 
 ```javascript
-// Enterprise Edition with plugins
+// Using plugins for specialized features
 import { ReleaseCreator, DeliveryManager } from '@ddex/distro-core';
-import { ImmersiveAudioPlugin } from '@ddex-enterprise/immersive-audio';
-import { AdvancedMetadataPlugin } from '@ddex-enterprise/advanced-metadata';
-import { DeliveryOrchestrationPlugin } from '@ddex-enterprise/delivery-orchestration';
+import { PluginLoader } from '@ddex/plugin-system';
 
-// Configure Enterprise features
-const creator = new ReleaseCreator({ edition: 'enterprise' });
-creator.use(new ImmersiveAudioPlugin());
-creator.use(new AdvancedMetadataPlugin());
-creator.use(new DeliveryOrchestrationPlugin());
+// Load plugins (if licensed)
+const plugins = new PluginLoader();
+await plugins.load('dolby-atmos');
+await plugins.load('delivery-orchestrator');
 
-// Create complex release
+// Create release with plugin features
 const release = {
   title: "Cinematic Experience",
   artist: "Orchestra Supreme",
@@ -1347,90 +1284,44 @@ const release = {
     {
       title: "Epic Journey",
       artist: "Orchestra Supreme",
-      
-      // Basic credits (Community compatible)
       producer: "Alex Producer",
       writer: ["Sarah Composer"],
       
-      // Advanced credits (Enterprise only)
-      mixingEngineer: "Mike Mixer",
-      masteringEngineer: "Mary Master",
-      recordingEngineer: "Rob Recorder",
-      orchestrator: "Oscar Orchestrator",
-      sessionMusicians: [
-        { name: "Violin Virtuoso", instrument: "Violin", role: "Principal" },
-        { name: "Cello Master", instrument: "Cello", role: "Section Leader" }
-      ],
-      
-      // Recording details (Enterprise only)
-      recordingLocation: "Abbey Road Studios",
-      recordingDate: "2024-03-15",
-      equipment: {
-        console: "SSL Duality",
-        microphones: ["Neumann U87", "AKG C414"]
-      },
-      
-      // Immersive audio (Enterprise only)
-      immersiveAudio: {
-        format: "DolbyAtmos",
-        channelConfiguration: "7.1.4",
-        files: {
-          master: "epic-journey.atmos",
-          binaural: "epic-journey-binaural.wav",
-          stereoDownmix: "epic-journey-stereo.wav"
-        }
+      // Plugin-enhanced: Dolby Atmos
+      audioFiles: {
+        stereo: "epic-journey-stereo.wav",  // Core feature
+        atmos: "epic-journey.atmos"          // Plugin feature
       }
     }
   ],
   
-  // Complex territories (Enterprise only)
-  territories: {
-    included: ["US", "CA", "GB", "DE", "FR", "JP"],
-    exceptions: {
-      "JP": { startDate: "2024-08-01" }
-    },
-    pricing: {
-      "US": { wholesale: 7.00, currency: "USD" },
-      "GB": { wholesale: 5.50, currency: "GBP" }
-    }
-  },
-  
-  // Advanced delivery orchestration (Enterprise only)
+  // Plugin-enhanced: Delivery orchestration
   delivery: {
     orchestration: {
-      type: "parallel",              // Deliver simultaneously
-      maxConcurrent: 5,
-      retryStrategy: "exponential",
-      chains: [
+      type: "parallel",
+      rules: [
         {
           condition: "spotify.success",
           action: "notify",
           target: "marketing-team"
-        },
-        {
-          condition: "any.failed",
-          action: "retry",
-          maxAttempts: 3,
-          backoff: "exponential"
         }
       ]
     },
     targets: [
-      // Multiple delivery targets with smart routing
-      { name: "Spotify", priority: 1, protocol: "API" },
-      { name: "Apple", priority: 1, protocol: "S3" },
-      { name: "Amazon", priority: 2, protocol: "API" },
-      { name: "Tidal", priority: 2, protocol: "SFTP" }
+      { name: "Spotify", protocol: "API" },
+      { name: "Apple", protocol: "S3" },
+      { name: "Amazon", protocol: "API" }
     ]
   }
 };
 
-// Process with Enterprise features
+// Process with plugins
+const creator = new ReleaseCreator({ plugins });
 const ddexRelease = await creator.createRelease(release);
 
-// Parallel delivery with orchestration
-const delivery = new DeliveryManager({ orchestration: true });
-const results = await delivery.deliverParallel(ddexRelease);
+// Deliver with orchestration
+const delivery = new DeliveryManager({ plugins });
+const results = await delivery.deliver(ddexRelease);
 ```
 
 ## Implementation Roadmap
@@ -1485,13 +1376,20 @@ const results = await delivery.deliverParallel(ddexRelease);
 - [ ] Implement retry logic
 - [ ] Add delivery receipts
 
-### Phase 5: Enterprise Features (Weeks 17-20)
+### Phase 5: Plugin Marketplace (Weeks 17-20)
 - [ ] Build plugin architecture
-- [ ] Create immersive audio plugin
-- [ ] Develop advanced metadata plugin
-- [ ] Build delivery orchestration plugin
-- [ ] Add territory management plugin
-- [ ] Implement license system
+- [ ] Create marketplace infrastructure
+- [ ] Develop Plugin SDK
+- [ ] Build developer portal
+- [ ] Create plugin submission/review system
+- [ ] Develop initial plugins:
+  - [ ] Dolby Atmos Plugin
+  - [ ] Sony 360 Reality Audio Plugin
+  - [ ] Advanced Credits Plugin
+  - [ ] Delivery Orchestrator Plugin
+- [ ] Setup third-party developer onboarding
+- [ ] Create plugin documentation
+- [ ] Build licensing system
 
 ### Phase 6: Testing & Launch (Weeks 21-24)
 - [ ] Comprehensive testing suite
@@ -1517,7 +1415,7 @@ const results = await delivery.deliverParallel(ddexRelease);
 
 ## Future Enhancements
 
-### Phase 2 Features (Post-Launch)
+### Post-Launch Features
 1. **DSR Integration**: Process sales reports from DSPs
 2. **Rights Management**: Complex rights and royalty tracking
 3. **Multi-Currency**: Pricing in multiple currencies
@@ -1529,7 +1427,7 @@ const results = await delivery.deliverParallel(ddexRelease);
 1. **DDEX Publisher**: Publishing and composition management
 2. **DDEX Analytics**: Unified analytics across distribution and consumption
 3. **DDEX Studio**: Audio mastering and preparation tools
-4. **DDEX Marketplace**: Plugin and template marketplace
+4. **DDEX Connect**: B2B integration platform
 
 ## Technical Considerations
 
@@ -1569,8 +1467,8 @@ timer.end({ releaseId, trackCount: release.tracks.length });
 ## Open Source Strategy
 
 ### License Structure
-- **Core Platform**: MIT License (Community Edition)
-- **Enterprise Plugins**: Commercial license
+- **Core Platform**: MIT License (100% open source)
+- **Plugins**: Individual licenses (MIT, GPL, Commercial, etc.)
 - **Documentation**: Creative Commons
 - **Examples**: MIT License
 
@@ -1579,43 +1477,15 @@ timer.end({ releaseId, trackCount: release.tracks.length });
 2. **Regular Releases**: Monthly release cycle
 3. **Community Calls**: Bi-weekly video calls
 4. **Contributor Guide**: Clear contribution guidelines
-5. **Plugin Marketplace**: Community extensions
+5. **Plugin Marketplace**: Community and commercial extensions
 
 ### Support Model
-- **Community**: GitHub Discussions, Discord
-- **Pro**: Traditional email support (24hr SLA)
-- **Enterprise**: Phone support, dedicated account manager
-
-## Business Model
-
-### Community Edition (Free Forever)
-- **Target**: Independent artists, small labels, developers
-- **Features**: Complete distribution platform with all protocols
-- **Support**: Community forum, documentation
-- **Limitations**: None within scope
-
-### Enterprise Edition Pricing
-#### Starter Plan - $TBD/month
-- All Enterprise plugins
-- Email support (24hr response)
-- 99.5% uptime SLA
-
-#### Professional Plan - $TBD/month
-- All Enterprise plugins
-- Priority support (4hr response)
-- 99.9% uptime SLA
-- Custom branding
-
-#### Enterprise Plan - Custom
-- All Enterprise plugins
-- Dedicated support team
-- 99.99% uptime SLA
-- Custom development
-- On-premise option
+- **Community**: GitHub Discussions, Discord (free)
+- **Plugin Support**: Varies by plugin developer
 
 ## Getting Started
 
-### Quick Start (Community Edition)
+### Quick Start
 ```bash
 # Clone and set up the development environment
 git clone https://github.com/ddex-distro/ddex-distro.git
@@ -1626,7 +1496,7 @@ cd cli
 npm install
 
 # Test the CLI locally
-./bin/ddex-distro.js create my-distro --edition=community
+./bin/ddex-distro.js create my-distro
 
 # Or install globally for development
 npm link
@@ -1641,23 +1511,22 @@ npm run deploy
 # Visit: https://my-distro.web.app
 ```
 
-### Enterprise Setup
+### Plugin Development
 ```bash
-# Install with license
-ddex-distro create my-enterprise \
-  --edition=enterprise \
-  --license-key=XXXX-XXXX-XXXX
+# Create new plugin project
+ddex-distro plugin create my-plugin
 
-# Select plugins
-? Select Enterprise plugins:
-  ✓ Immersive Audio
-  ✓ Advanced Metadata
-  ✓ Delivery Orchestration
-  ✓ Territory Management
+# Navigate to plugin directory
+cd my-plugin
 
-# Deploy
-cd my-enterprise
-npm run deploy:enterprise
+# Develop your plugin
+npm run dev
+
+# Test with local DDEX Distro instance
+npm run test
+
+# Publish to marketplace
+ddex-distro plugin publish
 ```
 
 ### Next Steps
@@ -1666,15 +1535,16 @@ npm run deploy:enterprise
 3. Create first release
 4. Test with DDEX DSP
 5. Go live with real deliveries
+6. Browse plugin marketplace for enhancements
 
 ## Conclusion
 
-DDEX Distro's open-core model provides a sustainable path to democratize music distribution while building a viable business. The Community Edition serves independent artists perfectly with complete delivery capabilities including API and cloud storage, while Enterprise Edition provides advanced features for professional organizations. This approach ensures:
+DDEX Distro's 100% open-source model with an optional plugin marketplace provides the perfect balance of accessibility and extensibility. The core platform delivers everything needed for professional music distribution without any limitations or fees, while the open plugin marketplace enables specialized features and creates opportunities for developers to innovate and monetize their expertise. This approach ensures:
 
-1. **No artificial limits** - Community Edition includes all delivery protocols
-2. **Clear value differentiation** - Enterprise features are genuinely advanced (immersive audio, complex metadata)
-3. **Natural upgrade path** - Users upgrade when they need professional features
-4. **Sustainable development** - Enterprise revenue funds ongoing development
-5. **Ecosystem growth** - Plugin architecture enables innovation
+1. **Complete transparency** - Every core feature is open source
+2. **No vendor lock-in** - The platform is fully functional without plugins
+3. **Developer ecosystem** - Anyone can create and sell plugins
+4. **Sustainable development** - Plugin revenue supports ongoing development
+5. **Community ownership** - True open source with community governance
 
 The future of music distribution is open, compliant, and accessible to all.
